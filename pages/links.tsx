@@ -1,9 +1,14 @@
 import style from "../styles/links.module.scss";
+import { link, links } from "../links";
 
 export default function Links() {
     return (
         <div>
-            <h1 className={style.test}>Test</h1>
+            {links.map((link: link) => (
+                <div>
+                    <a href={link.url} target=" _blank"><h2>{link.name}</h2></a>
+                </div>
+            ))}
         </div>
     );
 };

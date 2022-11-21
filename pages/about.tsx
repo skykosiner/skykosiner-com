@@ -7,8 +7,8 @@ export default function About() {
     return (
         <div>
             <Head>
-                <title>Yoni Kosiner | About Page</title>
-                <meta name="About page" content="About Yoni Kosiner" />
+                <title>Sky Kosiner | About Page</title>
+                <meta name="About page" content="About Sky Kosiner" />
             </Head>
 
             <AboutHero />
@@ -16,7 +16,7 @@ export default function About() {
             <div className={style.center}>
                 <div className={style.desc}>
                     <div className={style.left}>
-                        <p>Hello my name is Yoni. <br /> <br /> For the past few years I have
+                        <p>Hello my name is Sky. <br /> <br /> For the past few years I have
                             been creating content to do with coding on <a
                                 href="https://instagram.com/kosiner.codes"
                                 target="_blank" rel="noreferrer">insatgram</a>, and on <a
@@ -44,7 +44,7 @@ export default function About() {
                                 can find all my projects on <a
                                     href="https://gtihub.com/yonikosiner" target="_blank" rel="noreferrer">github)</a></li>
                             <li>I use Neovim, Arch Linux, and Dvorak btw <a
-                                href="https://github.com/yonikosiner/.dotfiles"
+                                href="https://github.com/skykosiner/.dotfiles"
                                 target=" _blank" rel="noreferrer">(my .dotfiles)</a></li>
                         </ul>
                     </div>

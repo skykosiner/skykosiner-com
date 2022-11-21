@@ -20,7 +20,7 @@ export default function Footer() {
                 <p>Made with <a href="https://github.com/microsoft/TypeScript" target=" _blank">TypeScript</a>, <a href="https://nextjs.org/" target=" _blank">Next.JS</a>, and <a href="https://sass-lang.com/" target=" _blank">Scss</a></p>
             </div>
             {/*Coppy right with year*/}
-            <p style={{ textAlign: "center", letterSpacing: "2px", fontWeight: "bolder" }} className={style.coppy}><a href="https://linktr.ee/yonikosiner" target=" _blank">Yoni Kosiner</a> &copy;{new Date().getFullYear()}</p>
+            <p style={{ textAlign: "center", letterSpacing: "2px", fontWeight: "bolder" }} className={style.coppy}><a href="https://linktr.ee/yonikosiner" target=" _blank">Sky Kosiner</a> &copy;{new Date().getFullYear()}</p>
         </div>
     );
 };

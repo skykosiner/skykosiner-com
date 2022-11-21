@@ -30,10 +30,18 @@ export const links: link[] = [
     },
     {
         "name": "Github",
-        "url": "https://github.com/yonikosiner"
+        "url": "https://github.com/skykosiner"
     },
     {
         "name": ".dotfiles",
-        "url": "https://github.com/yonikosiner/.dotfiles"
+        "url": "https://github.com/skykosiner/.dotfiles"
+    },
+    {
+        "name": "Study playlist",
+        "url": ""
+    },
+    {
+        "name": "Portfolio",
+        "url": "https://yonikosiner.com"
     }
 ]

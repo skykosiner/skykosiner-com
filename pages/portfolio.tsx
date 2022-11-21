@@ -18,8 +18,8 @@ export default function Portfolio() {
     return (
         <div style={{ minHeight: "50vw" }}>
             <Head>
-                <title>Yoni Kosiner | Portfolio Page</title>
-                <meta name="Portfolio page" content="Portfolio page Yoni Kosiner" />
+                <title>Sky Kosiner | Portfolio Page</title>
+                <meta name="Portfolio page" content="Portfolio page Sky Kosiner" />
             </Head>
             {/*Main projects*/}
             <div className={style.projects}>

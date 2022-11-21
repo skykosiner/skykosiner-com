@@ -6,7 +6,7 @@ export default function Contact() {
     return (
         <div>
             <Head>
-                <title>Yoni Kosiner | Contact Page</title>
+                <title>Sky Kosiner | Contact Page</title>
                 console.logc
                 <meta name="Contact page" content="Get in contact with Yoni Kosiner" />
             </Head>
