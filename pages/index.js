@@ -7,18 +7,11 @@ function HandleBlogPosts(posts) {
       return
     }
 
-    postHTML += `<div><a href="/blog/${post}">${post}</a></div/>`
+    postHTML += `<li><a href="/blog/${post}">${post}</a></div/>`
   })
 
   return postHTML
 }
-
-console.log("Hello world")
-
-const date = new Date().getFullYear()
-const dateHTML = document.getElementById("year")
-console.log(date, dateHTML)
-dateHTML.innerHTML = date
 
 fetch("/getPosts/")
   .then(resp => resp.text())
