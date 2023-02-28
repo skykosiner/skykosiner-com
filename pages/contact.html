@@ -1,23 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Sky Kosiner | Contact</title>
         <meta name="description" content="">
-        <title>Sky Kosiner | Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="./index.js"></script>
         <link rel="stylesheet" href="/index.css" />
-        <link rel="stylesheet" href="/home.css" />
 
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
     </head>
     <body>
         <div class="wrap">
             <div class="main">
-                <!-- Navbar -->
                 <div class="nav">
                     <a href="/"><img class="logo" src="/public/images/Logo.png" alt="Logo" /></a>
                     <ul>
@@ -27,16 +22,13 @@
                         <li><a href="/porjects.html">Projects</a></li>
                     </ul>
                 </div>
-                <!-- Main content -->
-                <div class="content">
-                    <h1>Hey Guys, I'm Sky.</h1>
-                    <h2>I'm a self taught <a href="https://github.com/skykosiner" target=" _blank">developer</a> and <a href="https://linktr.ee/skykosiner" traget=" _blank">content creator</a>.</h2>
-                    <p class="more">On this website you can learn more about me, find out what I'm working on, and contact me.</p>
-                </div>
-                <div class="posts">
-                    <h2>Blog Posts:</h3>
-                        <div id="posts"></div>
-                </div>
+
+                <form action="/contact/" method="POST">
+                    <input type="text" name="name" placeholder="Name:" />
+                    <input type="text" name="email" placeholder="Email:" />
+                    <input type="text" name="message" placeholder="Message:" />
+                    <input type="submit" />
+                </form>
             </div>
         </div>
 

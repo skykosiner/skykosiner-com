@@ -1,0 +1,16 @@
+.posts {
+    padding-left: 5rem;
+}
+
+.content {
+    padding-bottom: 3rem;
+    padding-left: 5rem;
+}
+
+.content > h2 > a {
+    font-size: 30px;
+}
+
+.more {
+    padding-top: 1rem;
+}

@@ -12,21 +12,40 @@
         <!-- Place favicon.ico in the root directory -->
     </head>
     <body>
-        <div id="text"></div>
-        <script type="text/javascript">
-         let body = "{{ .Body }}";
-         body = body.substring(1);
-         body = body.substring(0,body.length-1);
-         body = body.split(" ").map(Number);
+        <div class="wrap">
+            <div class="main">
+                <div class="nav">
+                    <a href="/"><img class="logo" src="/public/images/Logo.png" alt="Logo" /></a>
+                    <ul>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/tools.html">Tools</a></li>
+                        <li><a href="/porjects.html">Projects</a></li>
+                    </ul>
+                </div>
+                <div id="text"></div>
+                <script type="text/javascript">
+                 let body = "{{ .Body }}";
+                 body = body.substring(1);
+                 body = body.substring(0,body.length-1);
+                 body = body.split(" ").map(Number);
 
-         let bodyFinal = "";
+                 let bodyFinal = "";
 
-         for (let i = 0; i < body.length; i++) {
-             bodyFinal = bodyFinal.concat(String.fromCharCode(body[i]));
-         }
+                 for (let i = 0; i < body.length; i++) {
+                     bodyFinal = bodyFinal.concat(String.fromCharCode(body[i]));
+                 }
 
-         const text = document.getElementById("text")
-         text.innerHTML = bodyFinal
-        </script>
+                 const text = document.getElementById("text")
+                 text.innerHTML = bodyFinal
+                </script>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Sky Kosiner ©2023</p>
+            <p>Made with Golang, and good old HTML, CSS and JavaScript</p>
+        </footer>
     </body>
 </html>

@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/russross/blackfriday"
+	"github.com/skykosiner-com/pkg/utils"
 )
 
 type Page struct {
@@ -17,7 +18,6 @@ type Page struct {
 	Body []byte
 }
 var validPath = regexp.MustCompile("^/(blog)/([a-zA-Z0-9]+)$")
-
 var templates = template.Must(template.ParseFiles("./pages/blog.html"))
 
 func loadPage(title string) (*Page, error) {
@@ -87,12 +87,31 @@ func ListBlogPosts(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "%s", strReturn)
 }
 
+func Contact(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Redirect(w, r, "/contact.html", http.StatusSeeOther)
+	}
+
+	// body := []byte(fmt.Sprintf("Name: %s Email: %s Message: %s", r.FormValue("name"), r.FormValue("email"), r.FormValue("message")))
+	body := []byte(fmt.Sprintf("Name %s\nEmail %s\nMessage\n %s", r.FormValue("name"), r.FormValue("email"), r.FormValue("message")))
+	// body := []byte(r.FormValue("name"))
+
+	err := utils.SendMail(body)
+
+	if err != nil {
+		fmt.Fprintf(w, "Error sending email %s", err)
+	} else {
+		fmt.Fprintln(w, "Sent contact form")
+	}
+}
+
 func main() {
 	fs := http.FileServer(http.Dir("./pages/"))
 	http.Handle("/", fs)
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 	http.HandleFunc("/blog/", makeHandler(viewHandler))
 	http.HandleFunc("/getPosts/", ListBlogPosts)
+	http.HandleFunc("/contact/", Contact)
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
