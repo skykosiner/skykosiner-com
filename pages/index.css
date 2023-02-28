@@ -16,6 +16,10 @@ body {
 .main {
     overflow: auto;
     padding-bottom: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .wrap {
@@ -100,4 +104,8 @@ footer {
 
 footer > p {
     background-color: #FFFFFF;
+}
+
+textarea {
+    resize: none;
 }

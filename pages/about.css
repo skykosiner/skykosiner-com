@@ -1,5 +1,15 @@
 .content {
     padding-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subTitle {
+    padding-bottom: 0.3rem;
+    width: 50%;
+    text-align: left;
 }
 
 .content > p {

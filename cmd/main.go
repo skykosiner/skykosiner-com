@@ -92,16 +92,17 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/contact.html", http.StatusSeeOther)
 	}
 
-	// body := []byte(fmt.Sprintf("Name: %s Email: %s Message: %s", r.FormValue("name"), r.FormValue("email"), r.FormValue("message")))
-	body := []byte(fmt.Sprintf("Name %s\nEmail %s\nMessage\n %s", r.FormValue("name"), r.FormValue("email"), r.FormValue("message")))
-	// body := []byte(r.FormValue("name"))
+	msg := fmt.Sprintf(`To: "Sky Kosiner" <ykosiner@gmail.com>
+From: "Sky Kosiner" <ykosiner@gmail.com>
+Subject: Contact Form skykosiner.com | %s`, r.FormValue("name"))
+	body := []byte(fmt.Sprintf("%s\nName %s\nEmail %s\nMessage\n %s", msg, r.FormValue("name"), r.FormValue("email"), r.FormValue("message")))
 
 	err := utils.SendMail(body)
 
 	if err != nil {
 		fmt.Fprintf(w, "Error sending email %s", err)
 	} else {
-		fmt.Fprintln(w, "Sent contact form")
+		http.Redirect(w, r, "/contact.html", http.StatusOK)
 	}
 }
 

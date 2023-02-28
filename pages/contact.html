@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/index.css" />
+        <link rel="stylesheet" href="/contact.css" />
 
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     </head>
@@ -23,12 +24,24 @@
                     </ul>
                 </div>
 
-                <form action="/contact/" method="POST">
-                    <input type="text" name="name" placeholder="Name:" />
-                    <input type="text" name="email" placeholder="Email:" />
-                    <input type="text" name="message" placeholder="Message:" />
-                    <input type="submit" />
-                </form>
+                <div class="center">
+                    <h1>Contact Me</h1>
+                    <div class="formWrapper">
+                        <form action="/contact/" method="POST">
+                            <input class="mainInput" type="text" name="name" placeholder="Name:" />
+                            <br />
+                            <input class="mainInput" type="text" name="email" placeholder="Email:" />
+                            <br />
+                            <textarea class="message" name="message" placeholder="Message: "></textarea>
+                            <br />
+                            <span>
+                                <div class="submit">
+                                    <button>Subbmit</button>
+                                </div>
+                            </span>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
