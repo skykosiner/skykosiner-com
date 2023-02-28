@@ -7,7 +7,14 @@ function HandleBlogPosts(posts) {
       return
     }
 
-    postHTML += `<li><a href="/blog/${post}">${post}</a></div/>`
+    const postTitleArr = post.split(/(?=[A-Z])/)
+    let postTitle = ""
+
+    postTitleArr.map((word) => {
+      postTitle += " " + word
+    })
+
+    postHTML += `<li><a href="/blog/${post}">${postTitle}</a></div/>`
   })
 
   return postHTML

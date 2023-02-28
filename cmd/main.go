@@ -22,7 +22,6 @@ var templates = template.Must(template.ParseFiles("./pages/blog.html"))
 
 func loadPage(title string) (*Page, error) {
 	filename := "./blog/publish/" + title + ".md"
-	fmt.Println(filename)
 	body, err := os.ReadFile(filename)
 
 	if err != nil {
@@ -50,7 +49,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := loadPage(title)
 
 	if err != nil {
-		http.NotFoundHandler()
+		return
 	}
 
 	p.Body = []byte(blackfriday.MarkdownBasic(p.Body))
@@ -95,7 +94,7 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 	msg := fmt.Sprintf(`To: "Sky Kosiner" <ykosiner@gmail.com>
 From: "Sky Kosiner" <ykosiner@gmail.com>
 Subject: Contact Form skykosiner.com | %s`, r.FormValue("name"))
-	body := []byte(fmt.Sprintf("%s\nName %s\nEmail %s\nMessage\n %s", msg, r.FormValue("name"), r.FormValue("email"), r.FormValue("message")))
+	body := []byte(fmt.Sprintf("%s\nName %s\nEmail %s\nMessage\n%s", msg, r.FormValue("name"), r.FormValue("email"), r.FormValue("message")))
 
 	err := utils.SendMail(body)
 
@@ -113,6 +112,7 @@ func main() {
 	http.HandleFunc("/blog/", makeHandler(viewHandler))
 	http.HandleFunc("/getPosts/", ListBlogPosts)
 	http.HandleFunc("/contact/", Contact)
+
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

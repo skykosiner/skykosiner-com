@@ -1,0 +1,18 @@
+.content {
+    padding-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content > h2 {
+    padding-bottom: 0.4rem;
+    padding-top: 0.4rem;
+    width: 50%;
+    text-align: left;
+}
+
+.content > ul {
+    width: 50%;
+}
