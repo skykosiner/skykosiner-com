@@ -113,6 +113,5 @@ func main() {
 	http.HandleFunc("/getPosts/", ListBlogPosts)
 	http.HandleFunc("/contact/", Contact)
 
-
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
