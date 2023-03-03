@@ -1,23 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{{.Title}}</title>
         <meta name="description" content="">
-        <title>Sky Kosiner | Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="./index.js"></script>
         <link rel="stylesheet" href="/index.css" />
-        <link rel="stylesheet" href="/home.css" />
 
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-
     </head>
     <body>
         <div class="wrap">
             <div class="main">
-                <!-- Navbar -->
                 <div class="nav">
                     <a href="/"><img class="logo" src="/public/images/Logo.svg" alt="Logo" /></a>
                     <ul>
@@ -30,16 +26,23 @@
                         </form></li>
                     </ul>
                 </div>
-                <!-- Main content -->
-                <div class="content">
-                    <h1>Hey Guys, I'm Sky.</h1>
-                    <h2>I'm a self taught <a href="https://github.com/skykosiner" target=" _blank">developer</a> and <a href="https://linktr.ee/skykosiner" traget=" _blank">content creator</a>.</h2>
-                    <p class="more">On this website you can learn more about me, find out what I'm working on, and contact me.</p>
-                    <div class="posts">
-                        <h2>Blog Posts:</h2>
-                        <div id="posts"></div>
-                    </div>
-                </div>
+                <h1 style="padding-bottom: 1rem;">Search</h1>
+                <div id="text"></div>
+                <script type="text/javascript">
+                 let body = "{{ .Body }}";
+                 body = body.substring(1);
+                 body = body.substring(0, body.length-1);
+                 body = body.split(" ").map(Number);
+
+                 let bodyFinal = "";
+
+                 for (let i = 0; i < body.length; i++) {
+                     bodyFinal = bodyFinal.concat(String.fromCharCode(body[i]));
+                 }
+
+                 const text = document.getElementById("text")
+                 text.innerHTML = bodyFinal
+                </script>
             </div>
         </div>
 

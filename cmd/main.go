@@ -17,8 +17,9 @@ type Page struct {
 	Title string
 	Body []byte
 }
+
 var validPath = regexp.MustCompile("^/(blog)/([a-zA-Z0-9]+)$")
-var templates = template.Must(template.ParseFiles("./pages/blog.html"))
+var templates = template.Must(template.ParseFiles("./pages/blog.html", "./pages/search.html"))
 
 func loadPage(title string) (*Page, error) {
 	filename := "./blog/publish/" + title + ".md"
@@ -105,13 +106,37 @@ Subject: Contact Form skykosiner.com | %s`, r.FormValue("name"))
 	}
 }
 
+func SearchHandler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Query().Get("query") == "" {
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+	}
+
+	var query string = r.URL.Query().Get("query")
+	search := utils.SearchBlog(query)
+
+	page := &Page{
+		Title: "Search",
+		Body: []byte(search),
+	}
+
+	renderTemplate(w, "search", page)
+}
+
 func main() {
+	port := ":" + os.Getenv("PORT")
+
+	if port == ":" {
+		port = ":8080"
+	}
+
 	fs := http.FileServer(http.Dir("./pages/"))
 	http.Handle("/", fs)
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 	http.HandleFunc("/blog/", makeHandler(viewHandler))
 	http.HandleFunc("/getPosts/", ListBlogPosts)
 	http.HandleFunc("/contact/", Contact)
+	http.HandleFunc("/search", SearchHandler)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	fmt.Println(fmt.Sprintf("Listening on port %s", port))
+	log.Fatal(http.ListenAndServe(port, nil))
 }

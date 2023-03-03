@@ -123,3 +123,12 @@ textarea {
 #text > h2 {
     padding-bottom: 0.2rem;
 }
+
+.query-form {
+}
+
+#query {
+    border: none;
+    width: 287px;
+    height: 38px;
+}
