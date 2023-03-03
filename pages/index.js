@@ -3,7 +3,9 @@ function HandleBlogPosts(posts) {
   const postsArr = posts.split(" ")
   let postHTML = ""
   postsArr.map((post) => {
-    if (post === "") {
+    // Because Mac's like to create this weird ass .DS_Store file and sometimes
+    // I publish stuff from my MacBook not arch linux (btw)
+    if (post === "" || post === "DS_Store" || post.includes(".org")) {
       return
     }
 
@@ -16,8 +18,6 @@ function HandleBlogPosts(posts) {
       postTitle += " " + word
     })
 
-    console.log(postTitleArr)
-
     postHTML += `<li><a href="/blog/${post}">${postTitle}</a></li/>`
   })
 
@@ -29,6 +29,12 @@ fetch("/getPosts/")
   .then(resp => resp.text())
   .then(data => {
     const posts = document.getElementById("posts")
+    const postTitle = document.getElementById("post-title")
     const body = HandleBlogPosts(data)
+
+    if (body !== "") {
+      postTitle.innerHTML = "Blog Posts:"
+    }
+
     posts.innerHTML = body
   })

@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path"
 	"regexp"
 	"strings"
 
@@ -48,6 +49,10 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 
 func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := loadPage(title)
+
+	if p == nil {
+		http.Redirect(w, r, "/404.html", http.StatusSeeOther)
+	}
 
 	if err != nil {
 		return
@@ -122,6 +127,22 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "search", page)
 }
 
+func NotFound(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/404.html", http.StatusSeeOther)
+}
+
+func FileServerWithCustom404(fs http.FileSystem) http.Handler {
+	fsh := http.FileServer(fs)
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		_, err := fs.Open(path.Clean(r.URL.Path))
+		if os.IsNotExist(err) {
+			NotFound(w, r)
+			return
+		}
+		fsh.ServeHTTP(w, r)
+	})
+}
+
 func main() {
 	port := ":" + os.Getenv("PORT")
 
@@ -129,7 +150,7 @@ func main() {
 		port = ":8080"
 	}
 
-	fs := http.FileServer(http.Dir("./pages/"))
+	fs := FileServerWithCustom404(http.Dir("./pages"))
 	http.Handle("/", fs)
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 	http.HandleFunc("/blog/", makeHandler(viewHandler))
