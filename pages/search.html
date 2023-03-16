@@ -20,7 +20,7 @@
                         <li><a href="/about.html">About</a></li>
                         <li><a href="/contact.html">Contact</a></li>
                         <li><a href="/tools.html">Tools</a></li>
-                        <li><a href="/porjects.html">Projects</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
                         <li><form class="query-form" action="/search" method="GET">
                             <input type="text" name="query" id="query" placeholder="Search Blog">
                         </form></li>
@@ -29,19 +29,22 @@
                 <h1 style="padding-bottom: 1rem;">Search</h1>
                 <div id="text"></div>
                 <script type="text/javascript">
-                 let body = "{{ .Body }}";
-                 body = body.substring(1);
-                 body = body.substring(0, body.length-1);
-                 body = body.split(" ").map(Number);
+                    let body = "{{ .Body }}";
+                    body = body.substring(1);
+                    body = body.substring(0, body.length-1);
+                    body = body.split(" ").map(Number);
 
-                 let bodyFinal = "";
+                    let bodyFinal = "";
 
-                 for (let i = 0; i < body.length; i++) {
-                     bodyFinal = bodyFinal.concat(String.fromCharCode(body[i]));
-                 }
+                    for (let i = 0; i < body.length; i++) {
+                        bodyFinal = bodyFinal.concat(String.fromCharCode(body[i]));
+                    }
 
-                 const text = document.getElementById("text")
-                 text.innerHTML = bodyFinal
+                    const text = document.getElementById("text")
+
+                    console.log(bodyFinal)
+
+                    text.innerHTML = bodyFinal
                 </script>
             </div>
         </div>

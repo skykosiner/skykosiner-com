@@ -1,0 +1,20 @@
+#+title: Why I Use Linux
+
+* Intro
+Recently I had my main work machine (2020 Razer Blade base model running arch
+Linux) break down on me, and luckily I'm forutanite enough to have two other
+macs to fall back to. But the thing is that well my god, do I miss Linux and
+forget how many things I take for granted every day which I'm surprised you
+can't do on Mac or espaicly windows well.
+* Tiling window manger
+Ono of the greatest things I love about linux is the idea of tiling window
+mangers. While yes they do tile windows and make your more productive and save
+time without having to move things around with floating windows. They allow you
+to do so much more.
+** Tiling
+Before I go over all the other great things about tiling window mangers I want
+to talk about the main feautre which is ofcourse tliing.
+
+The whole idea of tiling is that unlike a nomal desktop envoriment such as gnoe,
+kde, or something like mac or windows, your windows are atuomaticlly are
+organized into layout for you.

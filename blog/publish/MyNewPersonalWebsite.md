@@ -73,4 +73,3 @@ pain to write.
 
 This isn't a very long post. But I'll be trying to add new blog posts as often as I can!
 You can checkout the code to this website on my github.
-

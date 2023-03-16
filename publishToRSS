@@ -20,4 +20,4 @@ EOF
 
 sed -i "7a $text" ./pages/rss.xml
 
-echo $text
+echo "$text"

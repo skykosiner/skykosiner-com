@@ -59,5 +59,9 @@ func SearchBlog(query string) string {
 		html = append(html, []byte("<br>")...)
 	}
 
+	if string(html) == "" {
+		html = []byte(fmt.Sprintf("### Sorry there is no blog matching %s :(", query))
+	}
+
 	return string(blackfriday.MarkdownCommon(html))
 }

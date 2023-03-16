@@ -7,7 +7,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/index.css" />
-        <link rel="stylesheet" href="/contact.css" />
+        <link rel="stylesheet" href="/404.css" />
+        <script type="text/javascript" src="/404.js"></script>
 
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     </head>
@@ -20,7 +21,7 @@
                         <li><a href="/about.html">About</a></li>
                         <li><a href="/contact.html">Contact</a></li>
                         <li><a href="/tools.html">Tools</a></li>
-                        <li><a href="/porjects.html">Projects</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
                         <li><form class="query-form" action="/search" method="GET">
                             <input type="text" name="query" id="query" placeholder="Search Blog">
                         </form></li>
@@ -28,6 +29,10 @@
                 </div>
                 <h1>Sorry we could not find that page :(</h1>
                 <h2><a href="/">Go home?</a></h2>
+                <div style="padding-top: 3rem;">
+                    <h2>Read recent blog posts?</h2>
+                    <div id="posts"></div>
+                </div>
             </div>
         </div>
 

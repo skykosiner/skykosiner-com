@@ -124,7 +124,8 @@ textarea {
     padding-bottom: 0.2rem;
 }
 
-.query-form {
+#text > h3 {
+    text-align: center;
 }
 
 #query {

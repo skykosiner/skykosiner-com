@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -51,7 +52,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := loadPage(title)
 
 	if p == nil {
-		http.Redirect(w, r, "/404.html", http.StatusSeeOther)
+		NotFound(w, r)
 	}
 
 	if err != nil {
@@ -92,6 +93,47 @@ func ListBlogPosts(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "%s", strReturn)
 }
 
+func GetBlurb(w http.ResponseWriter, r *http.Request) {
+	var blurbArr []string
+	var blurb string
+
+	if r.URL.Query().Get("blog") == "" {
+		http.Redirect(w, r, "/", http.StatusInternalServerError)
+	}
+
+	query := r.URL.Query().Get("blog")
+	file, err := os.Open(fmt.Sprintf("./blog/publish/%s.org", query))
+
+	if err != nil {
+		http.Redirect(w, r, "/", http.StatusInternalServerError)
+		log.Println("Error getting blurb post", err)
+	}
+
+	defer file.Close()
+
+	bytes, err := ioutil.ReadAll(file)
+
+	if err != nil {
+		http.Redirect(w, r, "/", http.StatusInternalServerError)
+		log.Println("Error getting blurb post", err)
+	}
+
+	lines := strings.Split(string(bytes), "\n")
+
+	for _, line := range lines {
+		if len(blurbArr) > 4 {
+			break
+		}
+
+		blurbArr = append(blurbArr, line)
+		blurb += line
+	}
+
+	fmt.Println(blurb)
+
+	fmt.Fprintln(w, blurb)
+}
+
 func Contact(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Redirect(w, r, "/contact.html", http.StatusSeeOther)
@@ -116,11 +158,11 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 	}
 
-	var query string = r.URL.Query().Get("query")
+	query := r.URL.Query().Get("query")
 	search := utils.SearchBlog(query)
 
 	page := &Page{
-		Title: "Search",
+		Title: "Sky Kosiner | Search",
 		Body: []byte(search),
 	}
 
@@ -157,6 +199,7 @@ func main() {
 	http.HandleFunc("/getPosts/", ListBlogPosts)
 	http.HandleFunc("/contact/", Contact)
 	http.HandleFunc("/search", SearchHandler)
+	http.HandleFunc("/getBlurb", GetBlurb)
 
 	fmt.Println(fmt.Sprintf("Listening on port %s", port))
 	log.Fatal(http.ListenAndServe(port, nil))
