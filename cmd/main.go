@@ -15,15 +15,15 @@ import (
 	"github.com/skykosiner-com/pkg/utils"
 )
 
-type Page struct {
+type BlogPage struct {
 	Title string
 	Body []byte
 }
 
 var validPath = regexp.MustCompile("^/(blog)/([a-zA-Z0-9]+)$")
-var templates = template.Must(template.ParseFiles("./pages/blog.html", "./pages/search.html"))
+var templates = template.Must(template.ParseFiles("./pages/html/blog.html", "./pages/html/search.html"))
 
-func loadPage(title string) (*Page, error) {
+func loadPage(title string) (*BlogPage, error) {
 	filename := "./blog/publish/" + title + ".md"
 	body, err := os.ReadFile(filename)
 
@@ -31,7 +31,7 @@ func loadPage(title string) (*Page, error) {
 		return nil, err
 	}
 
-	return &Page{Title: title, Body: body}, nil
+	return &BlogPage{Title: title, Body: body}, nil
 }
 
 
@@ -64,7 +64,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 	renderTemplate(w, "blog", p)
 }
 
-func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
+func renderTemplate(w http.ResponseWriter, tmpl string, p *BlogPage) {
 	err := templates.ExecuteTemplate(w, tmpl+".html", p)
 
 	if err != nil {
@@ -161,7 +161,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query().Get("query")
 	search := utils.SearchBlog(query)
 
-	page := &Page{
+	page := &BlogPage{
 		Title: "Sky Kosiner | Search",
 		Body: []byte(search),
 	}
@@ -169,10 +169,12 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "search", page)
 }
 
+// Custom 404 page
 func NotFound(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/404.html", http.StatusSeeOther)
 }
 
+// File server with a custom 404 page instead defualt golang page of 404 not found
 func FileServerWithCustom404(fs http.FileSystem) http.Handler {
 	fsh := http.FileServer(fs)
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

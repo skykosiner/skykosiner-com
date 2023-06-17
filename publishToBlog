@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+blogToPost=$(ls ./blog/drafts/ | fzf)
+mv "./blog/drafts/$blogToPost" "./blog/publish/$blogToPost"

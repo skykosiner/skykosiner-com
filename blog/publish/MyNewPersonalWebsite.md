@@ -1,4 +1,3 @@
-
 # Table of Contents
 
 1.  [Why I remade my website](#org4d64ebd)
@@ -6,7 +5,6 @@
     1.  [Golang](#org7f9de5b)
     2.  [HTML, CSS, and JS](#org17cf3a3)
 3.  [Wrap up](#org958a094)
-
 
 
 <a id="org4d64ebd"></a>

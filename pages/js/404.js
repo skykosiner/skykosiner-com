@@ -1,8 +1,8 @@
 // Loop over each post and make an li tag with a link to the page of the post
-/*
+/**
  * @param {array} posts
  * @returns {string} the html of the posts
- **/
+ */
 async function HandleBlogPosts(posts) {
   const postsArr = posts.split(" ")
   let postHTML = ""
