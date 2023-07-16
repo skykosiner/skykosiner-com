@@ -2,75 +2,24 @@ package main
 
 import (
 	"fmt"
-	"html/template"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"path"
-	"regexp"
 	"strings"
 
-	"github.com/russross/blackfriday"
 	"github.com/skykosiner-com/pkg/utils"
+	"github.com/skykosiner-com/pkg/blog"
 )
 
-type BlogPage struct {
-	Title string
+type BookPage struct {
+	BookTitle string
 	Body []byte
+	BookCover string
+	Author string
 }
 
-var validPath = regexp.MustCompile("^/(blog)/([a-zA-Z0-9]+)$")
-var templates = template.Must(template.ParseFiles("./pages/html/blog.html", "./pages/html/search.html"))
-
-func loadPage(title string) (*BlogPage, error) {
-	filename := "./blog/publish/" + title + ".md"
-	body, err := os.ReadFile(filename)
-
-	if err != nil {
-		return nil, err
-	}
-
-	return &BlogPage{Title: title, Body: body}, nil
-}
-
-
-func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		m := validPath.FindStringSubmatch(r.URL.Path)
-
-		if m == nil {
-			http.NotFound(w, r)
-			return
-		}
-
-		fn(w, r, m[2])
-	}
-}
-
-func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
-	p, err := loadPage(title)
-
-	if p == nil {
-		NotFound(w, r)
-	}
-
-	if err != nil {
-		return
-	}
-
-	p.Body = []byte(blackfriday.MarkdownBasic(p.Body))
-
-	renderTemplate(w, "blog", p)
-}
-
-func renderTemplate(w http.ResponseWriter, tmpl string, p *BlogPage) {
-	err := templates.ExecuteTemplate(w, tmpl+".html", p)
-
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-}
 
 func ListBlogPosts(w http.ResponseWriter, r *http.Request) {
 	var postArr []string
@@ -153,34 +102,13 @@ Subject: Contact Form skykosiner.com | %s`, r.FormValue("name"))
 	}
 }
 
-func SearchHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Query().Get("query") == "" {
-		http.Redirect(w, r, "/", http.StatusSeeOther)
-	}
-
-	query := r.URL.Query().Get("query")
-	search := utils.SearchBlog(query)
-
-	page := &BlogPage{
-		Title: "Sky Kosiner | Search",
-		Body: []byte(search),
-	}
-
-	renderTemplate(w, "search", page)
-}
-
-// Custom 404 page
-func NotFound(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "/404.html", http.StatusSeeOther)
-}
-
 // File server with a custom 404 page instead defualt golang page of 404 not found
 func FileServerWithCustom404(fs http.FileSystem) http.Handler {
 	fsh := http.FileServer(fs)
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		_, err := fs.Open(path.Clean(r.URL.Path))
 		if os.IsNotExist(err) {
-			NotFound(w, r)
+			utils.NotFound(w, r)
 			return
 		}
 		fsh.ServeHTTP(w, r)
@@ -197,10 +125,10 @@ func main() {
 	fs := FileServerWithCustom404(http.Dir("./pages"))
 	http.Handle("/", fs)
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
-	http.HandleFunc("/blog/", makeHandler(viewHandler))
+	http.HandleFunc("/blog/", blog.MakeHandler(blog.ViewHandler))
 	http.HandleFunc("/getPosts/", ListBlogPosts)
 	http.HandleFunc("/contact/", Contact)
-	http.HandleFunc("/search", SearchHandler)
+	http.HandleFunc("/search", blog.SearchHandler)
 	http.HandleFunc("/getBlurb", GetBlurb)
 
 	fmt.Println(fmt.Sprintf("Listening on port %s", port))

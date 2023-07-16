@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"net/smtp"
+	"net/http"
 	"os/exec"
 	"regexp"
 	"strings"
@@ -64,4 +65,9 @@ func SearchBlog(query string) string {
 	}
 
 	return string(blackfriday.MarkdownCommon(html))
+}
+
+// Custom 404 page
+func NotFound(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/html/404.html", http.StatusSeeOther)
 }

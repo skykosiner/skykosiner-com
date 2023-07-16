@@ -7,14 +7,49 @@
 
 .projects > div {
     align-items: center;
-    width: 30%;
-    text-align: justify;
+    width: 80%;
+    text-align: center;
+    background-color: #212121;
 }
 
 .projects-area > div {
+    border: 2px solid #F2F2F2;
+    margin-bottom: 1rem;
     padding-top: 1rem;
+    background-color: #212121;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .projects-area > div > p {
+    width: 50%;
     padding-top: 0.3125rem;
+    background-color: #212121;
+}
+
+.projects-area > div > h3 {
+    background-color: #212121;
+}
+
+.projects-area > div > h3 > a {
+    background-color: #212121;
+}
+
+#airconText {
+    display: none;
+}
+
+#swiftText {
+    display: none;
+}
+
+#personalWebsiteText {
+    display: none;
+}
+
+#statusLineText {
+    display: none;
 }
