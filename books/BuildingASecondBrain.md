@@ -1,25 +1,13 @@
----
-Title: Building a second brain
-Start Date: 2023-07-06
-Finish Date:
-Author: Tigao Forte
-tags: TBR
----
-# 🚀 The Book in 3 Sentences
-1.
-2.
-3.
-# 🎨 Impressions
-## How I Discovered It
-## Who Should Read It?
-# ☘️ How the Book Changed Me
-*
-# ✍️ My Top 3 Quotes
-*
-# 📒 Summary + Notes
+Author: Tiago Forte
+<br />
+Link to buy: [amazon](https://www.amazon.co.uk/Building-Second-Brain-Organise-Potential-ebook/dp/B09MDNDYYF/ref=sr_1_1?keywords=building+a+second+brain&sr=8-1)
+
+# Summary & Notes
+
 ## Introduction - The Promise of a Second
 * The promise of a [[second brain]] is a system for all your thoughts to go, a place so that you never forget anything again
 * A place for you to store your current learnings so that later on days, weeks or even years later when you're making something or talking about something realeted to the topic you can easily find all your faults on it
+
 ### What the second brain system will teach you
 * Find anything you've learned or thought in the past
 * Organize your knowledge and use it in your projects and to help your goals
@@ -35,6 +23,8 @@ storing them)
 	* You can have every single thought, plan, memory, guide and much more all in your pocket
 * We all consume so much information on a daily basis and without a system to manage it we only take away a small amount of the information and apply it to our lives, but building a system you won't forget this info.
 * Without some sort of system to organize everything you will lose track of important items, and not take away more then a few lessons from each book, article, podcast, and audiobook you consume
+
 ## Chapter 1 - Where it All Started
 * The beginning bit of this chapter goes over [[Tiago Fortes]] story of his medical condition, and how he was forgetting things so he decided to start writing down every small bit of info to remember it
+
 ## A Personal Turning point - Discovering the power of writing things down

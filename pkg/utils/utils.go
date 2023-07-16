@@ -2,8 +2,10 @@ package utils
 
 import (
 	"fmt"
-	"net/smtp"
+	"log"
 	"net/http"
+	"net/smtp"
+	"os"
 	"os/exec"
 	"regexp"
 	"strings"
@@ -70,4 +72,47 @@ func SearchBlog(query string) string {
 // Custom 404 page
 func NotFound(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/html/404.html", http.StatusSeeOther)
+}
+
+
+func ListBookNotes(w http.ResponseWriter, r *http.Request) {
+	var bookArr []string
+	var strReturn string
+	books, err := os.ReadDir("./books")
+
+	if err != nil {
+		log.Fatal("Error getting books")
+	}
+
+	for _, book := range books {
+		bookArr = append(bookArr, book.Name())
+	}
+
+	for _, book := range bookArr {
+		book = strings.Trim(book, ".md")
+		strReturn = fmt.Sprintf("%s %s",strReturn, book)
+	}
+
+	fmt.Fprintf(w, "%s", strReturn)
+}
+
+func ListBlogPosts(w http.ResponseWriter, r *http.Request) {
+	var postArr []string
+	var strReturn string
+	posts, err := os.ReadDir("./blog/publish")
+
+	if err != nil {
+		log.Fatal("Error getting blog posts")
+	}
+
+	for _, post := range posts {
+		postArr = append(postArr, post.Name())
+	}
+
+	for _, post := range postArr {
+		post = strings.Trim(post, ".md")
+		strReturn = fmt.Sprintf("%s %s",strReturn, post)
+	}
+
+	fmt.Fprintf(w, "%s", strReturn)
 }

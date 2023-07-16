@@ -9,40 +9,13 @@ import (
 	"path"
 	"strings"
 
-	"github.com/skykosiner-com/pkg/utils"
 	"github.com/skykosiner-com/pkg/blog"
+	"github.com/skykosiner-com/pkg/book"
+	"github.com/skykosiner-com/pkg/utils"
 )
 
-type BookPage struct {
-	BookTitle string
-	Body []byte
-	BookCover string
-	Author string
-}
-
-
-func ListBlogPosts(w http.ResponseWriter, r *http.Request) {
-	var postArr []string
-	var strReturn string
-	posts, err := os.ReadDir("./blog/publish")
-
-	if err != nil {
-		log.Fatal("Error getting blog posts")
-	}
-
-	for _, post := range posts {
-		postArr = append(postArr, post.Name())
-	}
-
-	for _, post := range postArr {
-		post = strings.Trim(post, ".md")
-		strReturn = fmt.Sprintf("%s %s",strReturn, post)
-	}
-
-	fmt.Fprintf(w, "%s", strReturn)
-}
-
 func GetBlurb(w http.ResponseWriter, r *http.Request) {
+
 	var blurbArr []string
 	var blurb string
 
@@ -126,7 +99,9 @@ func main() {
 	http.Handle("/", fs)
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 	http.HandleFunc("/blog/", blog.MakeHandler(blog.ViewHandler))
-	http.HandleFunc("/getPosts/", ListBlogPosts)
+	http.HandleFunc("/book/", book.MakeHandler(book.ViewHandler))
+	http.HandleFunc("/getPosts/", utils.ListBlogPosts)
+	http.HandleFunc("/getBooks/", utils.ListBookNotes)
 	http.HandleFunc("/contact/", Contact)
 	http.HandleFunc("/search", blog.SearchHandler)
 	http.HandleFunc("/getBlurb", GetBlurb)

@@ -19,11 +19,11 @@ async function HandleBlogPosts(posts) {
       return
     }
 
-    const blurb = fetch(`/getBlurb?blog=${post}`)
+    /* const blurb = fetch(`/getBlurb?blog=${post}`)
           .then(resp => resp.text())
           .then(data => {
             return data
-          })
+          }) */
 
     // Split the title of the post by new capital letters such as
     // HelloWorld would become Hello world
@@ -34,11 +34,11 @@ async function HandleBlogPosts(posts) {
       postTitle += " " + word
     })
 
-    postHTML += `<div><a href="/blog/${post}">${postTitle}</a><p>${await blurb}<p/></div>`
+    postHTML += `<div><a href="/blog/${post}">${postTitle}</a></div>`
     count++
   })
 
-  return await postHTML
+  return postHTML
 }
 
 // Fetch the blog posts and put them into the div with the id posts

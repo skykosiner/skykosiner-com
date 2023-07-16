@@ -11,7 +11,7 @@ function showMore(item) {
     map.set("aircon", document.getElementById("airconText"));
     map.set("swift", document.getElementById("swiftText"));
     map.set("personal-website", document.getElementById("personalWebsiteText"));
-    map.set("statusLine", document.getElementById("todoMeDaddyText"));
+    map.set("statusLine", document.getElementById("statusLineText"));
 
     item = map.get(item);
 
