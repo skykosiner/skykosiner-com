@@ -1,14 +1,3 @@
-# Table of Contents
-
-1.  [Why I remade my website](#org4d64ebd)
-2.  [Techstack](#orgb779d99)
-    1.  [Golang](#org7f9de5b)
-    2.  [HTML, CSS, and JS](#org17cf3a3)
-3.  [Wrap up](#org958a094)
-
-
-<a id="org4d64ebd"></a>
-
 # Why I remade my website
 
 When I first got into coding I found my self remaking my personal website all

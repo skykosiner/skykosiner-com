@@ -9,13 +9,13 @@ import (
 	"path"
 	"strings"
 
+	"github.com/joho/godotenv"
 	"github.com/skykosiner-com/pkg/blog"
 	"github.com/skykosiner-com/pkg/book"
 	"github.com/skykosiner-com/pkg/utils"
 )
 
 func GetBlurb(w http.ResponseWriter, r *http.Request) {
-
 	var blurbArr []string
 	var blurb string
 
@@ -89,6 +89,12 @@ func FileServerWithCustom404(fs http.FileSystem) http.Handler {
 }
 
 func main() {
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	port := ":" + os.Getenv("PORT")
 
 	if port == ":" {
@@ -101,6 +107,7 @@ func main() {
 	http.HandleFunc("/blog/", blog.MakeHandler(blog.ViewHandler))
 	http.HandleFunc("/book/", book.MakeHandler(book.ViewHandler))
 	http.HandleFunc("/getPosts/", utils.ListBlogPosts)
+	http.HandleFunc("/getPostsWithDate/", utils.ListBlogPostsWithDate)
 	http.HandleFunc("/getBooks/", utils.ListBookNotes)
 	http.HandleFunc("/contact/", Contact)
 	http.HandleFunc("/search", blog.SearchHandler)
