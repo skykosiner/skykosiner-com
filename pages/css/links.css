@@ -21,7 +21,7 @@
     color: #3897D3;
 }
 
-img {
+.me {
     width: 350px;
-    border-radius: 5%;
+    padding-top: 1rem;
 }

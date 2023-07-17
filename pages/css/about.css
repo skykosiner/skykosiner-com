@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 1rem;
 }
 
 .subTitle {
@@ -14,4 +15,18 @@
 
 .content > p {
     width: 50%;
+}
+
+@media all and (max-width: 1010px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .content > p {
+        width: 100%;
+    }
+
+    .subTitle {
+        width: 100%;
+    }
 }

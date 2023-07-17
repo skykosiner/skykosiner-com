@@ -1,6 +1,7 @@
 .projects {
     padding-top: 0.3rem;
-    width: 15%;
+    padding-bottom: 2.7rem;
+    width: 40%;
 }
 
 .projects-area > div {
@@ -59,4 +60,10 @@
 
 #statusLineText {
     display: none;
+}
+
+@media all and (max-width: 1010px) {
+    .projects {
+        width: 90%;
+    }
 }

@@ -21,3 +21,14 @@
     justify-content: start;
     align-items: start;
 }
+
+@media all and (max-width: 1010px) {
+    .content > p {
+        width: 90%;
+    }
+
+    .books {
+        padding-top: 1rem;
+        width: 90%;
+    }
+}

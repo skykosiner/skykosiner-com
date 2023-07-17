@@ -16,3 +16,21 @@
 .content > ul {
     width: 50%;
 }
+
+@media all and (max-width: 1010px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .content > p {
+        width: 100%;
+    }
+
+    .content > h2 {
+        width: 90%;
+    }
+
+    .content > ul {
+        width: 90%;
+    }
+}

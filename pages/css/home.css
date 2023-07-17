@@ -20,3 +20,14 @@
 .more {
     padding-top: 1rem;
 }
+
+@media all and (max-width: 1010px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .posts {
+        width: 100%;
+    }
+}
+
