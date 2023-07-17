@@ -15,7 +15,6 @@ import (
 )
 
 func GetBlurb(w http.ResponseWriter, r *http.Request) {
-
 	var blurbArr []string
 	var blurb string
 
