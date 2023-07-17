@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+file="./blog/publish/$(ls ./blog/publish | fzf --height=20%)"
+fileNoExt=$(echo $file | sed 's/.md//')
+title=$(echo $fileNoExt | sed 's/\([^[:blank:]]\)\([[:upper:]]\)/\1 \2/g')
+currentDate=$(date "+%a %d %b %Y")
+html=$(pandoc $file -f markdown -t html)
+
+text=$(cat <<EOF
+<input>
+    <title>$title</title>
+    <link>https://skykosiner.com/blog/$fileNoExt</link>
+    <pubDate>$currentDate</pubDate>
+    <description>
+        $html
+    </description>
+</input>
+EOF
+)
+
+sed -i "7a $text" ./pages/rss.xml
+
+echo "$text"

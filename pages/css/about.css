@@ -1,0 +1,33 @@
+.content {
+    padding-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.subTitle {
+    padding-top: 0.5rem;
+    padding-bottom: 0.3rem;
+    width: 50%;
+    text-align: left;
+}
+
+.content > p {
+    width: 50%;
+}
+
+@media all and (max-width: 1010px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .content > p {
+        width: 100%;
+    }
+
+    .subTitle {
+        width: 100%;
+    }
+}

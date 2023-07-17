@@ -1,0 +1,9 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Sky's blog</title>
+        <link>http://localhost:8080/</link>
+        <description>Sky kosiners blog</description>
+        <generator>Your mom</generator>
+        <language>en-us</language>
+  </channel>
+</rss>

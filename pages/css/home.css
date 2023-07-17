@@ -1,0 +1,33 @@
+.posts {
+    padding-top: 2rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.content {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 5rem;
+}
+
+.content > h2 > a {
+    font-size: 30px;
+}
+
+.more {
+    padding-top: 1rem;
+}
+
+@media all and (max-width: 1010px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .posts {
+        width: 100%;
+    }
+}
+
