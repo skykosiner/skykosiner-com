@@ -1,5 +1,5 @@
 // Loop over each post and make an li tag with a link to the page of the post
-function HandleBlogPosts(posts) {
+/* function HandleBlogPosts(posts) {
     const postsArr = posts.split(" ")
     let postHTML = ""
     postsArr.map((post) => {
@@ -37,7 +37,7 @@ fetch("/getPosts/")
         }
 
         posts.innerHTML = body
-    })
+    }) */
 
 fetch("/html/nav.html")
 .then(res => res.text())

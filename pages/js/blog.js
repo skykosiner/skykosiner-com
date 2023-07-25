@@ -23,7 +23,7 @@ function HandleBlogPosts(posts) {
     return postHTML
 }
 
-fetch("/getPostsWithDate/")
+fetch("/getPosts")
     .then(resp => resp.text())
     .then(data => {
         const posts = document.getElementById("posts")

@@ -107,7 +107,7 @@ func main() {
 	http.HandleFunc("/blog/", blog.MakeHandler(blog.ViewHandler))
 	http.HandleFunc("/book/", book.MakeHandler(book.ViewHandler))
 	http.HandleFunc("/getPosts/", utils.ListBlogPosts)
-	http.HandleFunc("/getPostsWithDate/", utils.ListBlogPostsWithDate)
+	// http.HandleFunc("/getPostsWithDate/", utils.ListBlogPostsWithDate)
 	http.HandleFunc("/getBooks/", utils.ListBookNotes)
 	http.HandleFunc("/contact/", Contact)
 	http.HandleFunc("/search", blog.SearchHandler)

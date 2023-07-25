@@ -116,34 +116,3 @@ func ListBlogPosts(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w, "%s", strReturn)
 }
-
-func ListBlogPostsWithDate(w http.ResponseWriter, r *http.Request) {
-	var postArr []string
-	var strReturn string
-	posts, err := os.ReadDir("./blog/publish")
-
-	if err != nil {
-		log.Fatal("Error getting blog posts")
-	}
-
-	for _, post := range posts {
-		file, err := os.Stat(fmt.Sprintf("./blog/publish/%s", post.Name()))
-
-		if err != nil {
-			log.Fatal("Error getting file info")
-		}
-
-		y,m,d := file.ModTime().Date()
-
-		fmt.Println(y, m, d)
-
-		postArr = append(postArr, fmt.Sprintf("%s - %d %d %d", post.Name(), y, m, d))
-	}
-
-	for _, post := range postArr {
-		post = strings.Trim(post, ".md")
-		strReturn = fmt.Sprintf("%s %s",strReturn, post)
-	}
-
-	fmt.Fprintf(w, "%s", strReturn)
-}

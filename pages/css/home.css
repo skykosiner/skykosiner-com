@@ -1,12 +1,3 @@
-.posts {
-    padding-top: 2rem;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-}
-
 .content {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -25,9 +16,40 @@
     .content {
         padding: 1rem;
     }
+}
 
-    .posts {
+@media all and (max-width: 1679px) {
+    .hero {
+        display: none;
+    }
+
+    .image {
+        display: none;
+    }
+
+
+    .text {
         width: 100%;
     }
 }
 
+.image > img {
+    width: 650px;
+    height: 466px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7rem 15rem;
+    overflow: hidden;
+}
+
+.text {
+    width: 40%;
+}
+
+.text > h2 > a {
+    font-size: 30px;
+}
