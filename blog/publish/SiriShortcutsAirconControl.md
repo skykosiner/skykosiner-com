@@ -1,0 +1,10 @@
+# Siri Shortcut Aircon Control
+(This only works with [dakin aircon](https://www.daikin.co.uk/en_gb/residential.html))
+
+In the past I've shared a [cli tool](https://github.com/skykosiner/dakin-aircon-golang/tree/master) I've made to control my aircon from my command line. But I wanted a way to be able to control my aircon using siri shortcuts to quickly control it from my Mac, iPad, and iPhone.
+
+So I decided to throw together a quick siri shortcut to help control my aircon.
+
+I've been using a keyboard shortcut with [raycast](https://www.raycast.com/) to help quickly launch the shortcut.
+
+[Link](https://www.icloud.com/shortcuts/8679661ae65d4c3f973e57ec8eb609f4) to the shortcut.

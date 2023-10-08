@@ -24,7 +24,7 @@ func GetBlurb(w http.ResponseWriter, r *http.Request) {
 	}
 
 	query := r.URL.Query().Get("blog")
-	file, err := os.Open(fmt.Sprintf("./blog/publish/%s.org", query))
+	file, err := os.Open(fmt.Sprintf("./blog/publish/%s.md", query))
 
 	if err != nil {
 		http.Redirect(w, r, "/", http.StatusInternalServerError)
@@ -58,7 +58,12 @@ func GetBlurb(w http.ResponseWriter, r *http.Request) {
 
 func Contact(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Redirect(w, r, "/contact.html", http.StatusSeeOther)
+		http.Redirect(w, r, "/html/contact.html", http.StatusSeeOther)
+	}
+
+	if strings.Contains(r.FormValue("name"), "Mike") {
+		http.Redirect(w, r, "/html/spam.html", http.StatusSeeOther)
+		return
 	}
 
 	msg := fmt.Sprintf(`To: "Sky Kosiner" <ykosiner@gmail.com>
