@@ -4,45 +4,40 @@
  * @returns {string} the html of the posts
  */
 function HandleBlogPosts(posts) {
-    const postsArr = posts.split(" ")
+    const postArr = posts.split("{");
     let postHTML = ""
-    let count = 0;
-    postsArr.map((post) => {
-        // Make sure not to get more then 8 posts on the 404
-        if (count >= 8) {
+    postArr.map((post) => {
+        if (post === "[") {
             return
         }
 
-        // Because Mac's like to create this weird ass .DS_Store file and sometimes
-        // I publish stuff from my MacBook not arch linux (btw)
-        if (post === "" || post === "DS_Store" || post.includes(".org")) {
-            return
-        }
+        const title = post.split(" ")[0]
+        const body = post.split(" ").splice(1);
 
-        fetch(`/getBlurb?blog=${post}`)
-          .then(resp => resp.text())
-          .then(data => {
-              return data
-          })
 
-        // Split the title of the post by new capital letters such as
-        // HelloWorld would become Hello world
-        const postTitleArr = post.split(/(?=[A-Z])/)
+        const postTitleArr = title.split(/(?=[A-Z])/)
         let postTitle = ""
 
         postTitleArr.map((word) => {
             postTitle += " " + word
         })
 
-        postHTML += `<div><a href="/blog/${post}">${postTitle}</a></div>`
-        count++
+        let bodyStr = ""
+
+        body.map((word) => {
+            bodyStr += " " + word
+        })
+
+        console.log(title)
+
+        postHTML += `<div><a href="/blog/${title}">${postTitle}</a><p>${bodyStr}</p></div>`
     })
 
     return postHTML
 }
 
 // Fetch the blog posts and put them into the div with the id posts
-fetch("/getPosts/")
+fetch("/Get404BlogPostsRecs/")
     .then(resp => resp.text())
     .then((data) => {
         const posts = document.getElementById("posts")

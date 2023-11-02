@@ -48,13 +48,23 @@ func Get404BlogPostsRecs(w http.ResponseWriter, r *http.Request) {
 
 		lines := strings.Split(string(bytes), "\n")
 
-		for _, line := range lines {
+		for idx, line := range lines {
+			// fmt.Println(idx, line)
+			var skip bool
+			if idx == 0 || idx == 1 {
+				skip = true
+			}
+
 			if len(blurbArr) > 4 {
 				break
 			}
 
-			blurbArr = append(blurbArr, line)
-			blurb += line
+
+			if !skip {
+				fmt.Println(line)
+				blurbArr = append(blurbArr, line)
+				blurb += line
+			}
 		}
 
 		postsArr = append(postsArr, BlogPost404{strings.Split(title, ".md")[0], blurb})
@@ -123,7 +133,7 @@ func main() {
 	http.HandleFunc("/getBooks/", utils.ListBookNotes)
 	http.HandleFunc("/contact/", Contact)
 	http.HandleFunc("/search", blog.SearchHandler)
-	http.HandleFunc("/Get404BlogPostsRecs", Get404BlogPostsRecs)
+	http.HandleFunc("/Get404BlogPostsRecs/", Get404BlogPostsRecs)
 
 	fmt.Println(fmt.Sprintf("Listening on port %s", port))
 	log.Fatal(http.ListenAndServe(port, nil))
