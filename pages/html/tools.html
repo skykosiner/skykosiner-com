@@ -9,9 +9,13 @@
         <link rel="stylesheet" href="/css/index.css" />
         <link rel="stylesheet" href="/css/tools.css" />
 
-        <link rel="icon" type="image/png" href="/public/images/favicon.png">
-        <!-- Place favicon.ico in the root directory -->
+        <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+        <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
 
+        <!-- Load the element definition -->
+        <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+        <link rel="icon" type="image/png" href="/public/images/favicon.png">
     </head>
     <body>
         <div class="wrap">
@@ -20,101 +24,42 @@
                 <script id="replace_with_navbar" src="/js/navFooter.js"></script>
                 <!-- Main content -->
                 <div class="content">
-                    <h1>Tools I'm using</h1>
-                    <h2>Software</h2>
-                    <ul>
-                        <li><a href="https://dwm.suckless.org/" target="
-                        _blank">Dwm</a><p>For my window manger of choice I use
-                        Dwm. This allows me to edit the source code and
-                        get more and more options then I can get with i3
-                        or anything else.</p></li>
-                        <li><a href="https://github.com/torrinfail/dwmblocks"
-                        traget=" _blank">Dwmblocks</a><p>By defualt in dwm you
-                        need to use xsetroot -name in a while loop to update and
-                        set your statusbar. I don't like this as i don't need
-                        everything in my statusbar updating every second, and
-                        with some things I want to send a kill signal to update
-                        it. Dwmblocks allows me to change the update time of
-                        each script, and with some scripts such as volume it
-                        only updates when a kill signal is sent.</p></li>
-                        <li><a href="https://st.suckless.org/" traget="
-                        _blank">St</a><p>Along with using suckless for my window
-                        manger I also use suckless for my terminal with
-                        st. I like st as I can make it do anything I want
-                        compared to what I was using before
-                        <a href="https://github.com/alacritty/alacritty"
-                        target=" _blank">Alacritty</a>. The only issue is out of
-                        the box st is not very usebul, in fact you can't even
-                        scrollback.</p></li>
-                        <li><a href="https://github.com/doomemacs/doomemacs"
-                        target=" _blank">Doom Emacs</a><p>I come from the path
-                        of vs code, to vim/neovim, down to emacs. I've alwayws
-                        been very spetical of emacs over vim as it just seemed
-                        like more work for no reason. But after trying it out
-                        with org mode, org agenda, and just editing code. I
-                        found I really do like it. I do miss how easy it was
-                        to add anything to neovim with lua, as I still don't
-                        really know lisp. But once I put in the effort to
-                        learn lisp just like in neovim I'll be able to add
-                        anything I want.</p></li>
-                        <li><a href="https://qutebrowser.org/" target="
-                        _blank">Qutebrowser</a><p>I used brave for almost two
-                        years and before that firefox. But even with 16gb of ram
-                        I always have too many tabs open and brave takes up too
-                        much ram. I found the qutebrowser a few weeks ago, and
-                        it's keyboard driven with vim keybinds, and barley eats
-                        any ram even with loads of tabs open.</p></li>
-                        <li><a href="https://github.com/gokcehan/lf" target="
-                        _blank">Lf</a><p>I prefear to do everything I can in a
-                        terminal or emacs. To do file mangement and quickly find
-                        files I use lf with a bunch of little scripts I have
-                        writen my self. The bueaty of lf is that you can use any
-                        shell script to make it do anything with a file which is
-                        really nice</p></li>
-                        <li><a href="https://zsh.sourceforge.io/" target="
-                        _blank">Zsh shell</a></li>
-                    </ul>
-                    <h2>Hardware</h2>
-                    <ul>
-                        <li>Lg Mointers</li>
-                                <ul style="padding-left: 1rem;">
-                                        <li><a href="" target=" _blank">Main Lg Mointer (144hz 1400x2500)</a></li>
-                                        <li><a href="" target=" _blank">Secondary Lg Mointer (144hz 1920x1080)</a></li>
-                                </ul>
-                        <li><a
-                        href="https://www.amazon.com/Kinesis-Advantage2-Ergonomic-Keyboard-KB600LFQ/dp/B07K1SMRGS"
-                        traget=" _blank">Kinesis Advantage 2 (With blank kinesis keycaps)</a></li>
-                        <li><a
-                        href="https://www.amazon.co.uk/Mechanical-Keyboard-Switches-Spacebar-Aluminum/dp/B08NZYPQTQ"
-                        traget=" _blank">Kinesis Tko (Kahli White)</a></li>
-                        <li><a
-                        href="https://www.amazon.co.uk/Razer-Viper-Lightweight-Opto-Mechanical-Ergonomics/dp/B07V6Z9RW4"
-                        traget=" _blank">Razer Viper</a></li>
-                        <li><a
-                        href="https://www.amazon.co.uk/Sony-WH-1000XM3-Wireless-Cancelling-Headphones-Black/dp/B07GDR2LYK"
-                        traget=" _blank">Sony wh100xm3</a></li>
-                        <li><a
-                        href="https://www.amazon.com/Blue-Snowball-Microphone-Textured-White/dp/B000EOPQ7E"
-                        traget=" _blank">Blue yeti snowball</a></li>
-                        <li><a
-                        href="https://mysupport.razer.com/app/answers/detail/a_id/3201/~/at-a-glance:-razer-blade-15-base-(2020)-%7C-rz09-0328x"
-                        traget=" _blank">Razer Blade 2020 Base Model</a></li>
-                        <li><a href="https://www.apple.com/uk/mac-mini/"
-                        traget=" _blank">Mac Mini M1 Base Model</a></li> <li><a
-                        href="https://www.apple.com/shop/buy-mac/macbook-pro/13-inch"
-                        traget=" _blank">MacBook Pro M1 Base Model</a></li>
-                        <li><a
-                        href="https://www.samsung.com/uk/smartphones/galaxy-z-flip4/"
-                        traget=" _blank">Samasung Galaxy Z Flip 4</a></li>
-                        <li><a
-                        href="https://www.apple.com/iphone-13-pro/index.html"
-                        traget=" _blank">iPhone 13 Pro</a></li> <li><a
-                        href="https://www.amazon.co.uk/amazon-kindle-oasis-8-gb-adjustable-warm-light-waterproof-graphite/dp/B07L5GDTYY"
-                        traget=" _blank">Kindle Oasis</a></li>
-                    </ul>
-                    <p>For almost all the software based tools you can find my
-                    configs at my <a href="https://github.com/skykosiner"
-                    target=" _blank">Github</a>.</p>
+                    <zero-md class="markdown" src="/html/tools.md">
+                        <template>
+                            <style>
+                                div {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                    padding-bottom: 0rem;
+                                    font-family: 'Inter', sans-serif;
+                                }
+
+                                p {
+                                    text-align: justify;
+                                    width: 50%;
+                                }
+
+                                ul {
+                                    width: 50%;
+                                    display: flex;
+                                    justify-content: center;
+                                    flex-direction: column;
+                                }
+
+                                @media all and (max-width: 1010px) {
+                                    div {
+                                        padding: 1rem;
+                                    }
+
+                                    p {
+                                        width: 100%;
+                                    }
+                                }
+                            </style>
+                        </template>
+                    </zero-md>
                 </div>
             </div>
         </div>

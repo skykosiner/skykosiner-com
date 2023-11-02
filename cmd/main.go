@@ -66,7 +66,7 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	msg := fmt.Sprintf(`To: "Sky Kosiner" <ykosiner@gmail.com>
+	msg := fmt.Sprintf(`To: "Sky Kosiner" <sky@skykosiner.com>
 From: "Sky Kosiner" <ykosiner@gmail.com>
 Subject: Contact Form skykosiner.com | %s`, r.FormValue("name"))
 	body := []byte(fmt.Sprintf("%s\nName %s\nEmail %s\nMessage\n%s", msg, r.FormValue("name"), r.FormValue("email"), r.FormValue("message")))
