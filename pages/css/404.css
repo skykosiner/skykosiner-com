@@ -1,15 +1,43 @@
 #posts {
     padding-top: 1rem;
     padding-bottom: 1rem;
+    width: 30%;
 }
 
 #posts > div {
     background: #FFFFFF;
     margin-bottom: 1rem;
+    /* width: 30%; */
     padding: 3rem;
     text-align: center;
     transition: 0.3s ease all;
     padding-top: 1rem;
+}
+
+#posts > div > p {
+    background: #FFFFFF;
+}
+
+#posts > div > p > a {
+    background: #FFFFFF;
+}
+
+#posts > div > h1 {
+    background: #FFFFFF;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+#posts > div > h2 {
+    background: #FFFFFF;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+#posts > div > h3 {
+    background: #FFFFFF;
+    font-size: 20px;
+    font-weight: normal;
 }
 
 #posts > div:hover {
@@ -24,4 +52,18 @@
 .go-home {
     padding-top: 0.3rem;
     text-align: center;
+}
+
+.postDiv {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media all and (max-width: 1300px) {
+    #posts {
+        width: 100%;
+    }
 }

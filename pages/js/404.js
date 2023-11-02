@@ -25,10 +25,13 @@ function HandleBlogPosts(posts) {
         let bodyStr = ""
 
         body.map((word) => {
+            if (word.includes("}") || word.includes("}]")) {
+                word = word.replace("}", "");
+                word = word.replace("]", "");
+            }
+
             bodyStr += " " + word
         })
-
-        console.log(title)
 
         postHTML += `<div><a href="/blog/${title}">${postTitle}</a><p>${bodyStr}</p></div>`
     })

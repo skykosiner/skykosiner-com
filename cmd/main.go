@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/joho/godotenv"
+	"github.com/russross/blackfriday"
 	"github.com/skykosiner-com/pkg/blog"
 	"github.com/skykosiner-com/pkg/book"
 	"github.com/skykosiner-com/pkg/utils"
@@ -49,25 +50,19 @@ func Get404BlogPostsRecs(w http.ResponseWriter, r *http.Request) {
 		lines := strings.Split(string(bytes), "\n")
 
 		for idx, line := range lines {
-			// fmt.Println(idx, line)
-			var skip bool
 			if idx == 0 || idx == 1 {
-				skip = true
+				continue
 			}
 
 			if len(blurbArr) > 4 {
 				break
 			}
 
-
-			if !skip {
-				fmt.Println(line)
-				blurbArr = append(blurbArr, line)
-				blurb += line
-			}
+			blurbArr = append(blurbArr, line)
+			blurb += line
 		}
 
-		postsArr = append(postsArr, BlogPost404{strings.Split(title, ".md")[0], blurb})
+		postsArr = append(postsArr, BlogPost404{strings.Split(title, ".md")[0], string(blackfriday.MarkdownBasic([]byte(blurb)))})
 	}
 
 	fmt.Fprintf(w, "%s", postsArr)
