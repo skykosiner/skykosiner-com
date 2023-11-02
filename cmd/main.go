@@ -15,45 +15,52 @@ import (
 	"github.com/skykosiner-com/pkg/utils"
 )
 
-func GetBlurb(w http.ResponseWriter, r *http.Request) {
-	var blurbArr []string
-	var blurb string
+type BlogPost404 struct {
+	title string
+	blurb string
+}
 
-	if r.URL.Query().Get("blog") == "" {
-		http.Redirect(w, r, "/", http.StatusInternalServerError)
-	}
-
-	query := r.URL.Query().Get("blog")
-	file, err := os.Open(fmt.Sprintf("./blog/publish/%s.md", query))
+func Get404BlogPostsRecs(w http.ResponseWriter, r *http.Request) {
+	var postsArr []BlogPost404
+	posts, err := os.ReadDir("./blog/publish")
 
 	if err != nil {
-		http.Redirect(w, r, "/", http.StatusInternalServerError)
-		log.Println("Error getting blurb post", err)
+		log.Fatal("Error getting blurbs for post ", err)
 	}
 
-	defer file.Close()
+	for _, post := range posts {
+		var blurbArr []string
+		var blurb string
+		title := post.Name()
+		file, err := os.Open(fmt.Sprintf("./blog/publish/%s", title))
 
-	bytes, err := ioutil.ReadAll(file)
-
-	if err != nil {
-		http.Redirect(w, r, "/", http.StatusInternalServerError)
-		log.Println("Error getting blurb post", err)
-	}
-
-	lines := strings.Split(string(bytes), "\n")
-
-	for _, line := range lines {
-		if len(blurbArr) > 4 {
-			break
+		if err != nil {
+			log.Fatal("Error getting blurbs for post", err)
 		}
 
-		blurbArr = append(blurbArr, line)
-		blurb += line
+		defer file.Close()
+
+		bytes, err := ioutil.ReadAll(file)
+
+		if err != nil {
+			log.Fatal("Error getting blurbs for post", err)
+		}
+
+		lines := strings.Split(string(bytes), "\n")
+
+		for _, line := range lines {
+			if len(blurbArr) > 4 {
+				break
+			}
+
+			blurbArr = append(blurbArr, line)
+			blurb += line
+		}
+
+		postsArr = append(postsArr, BlogPost404{strings.Split(title, ".md")[0], blurb})
 	}
 
-	fmt.Println(blurb)
-
-	fmt.Fprintln(w, blurb)
+	fmt.Fprintf(w, "%s", postsArr)
 }
 
 func Contact(w http.ResponseWriter, r *http.Request) {
@@ -116,7 +123,7 @@ func main() {
 	http.HandleFunc("/getBooks/", utils.ListBookNotes)
 	http.HandleFunc("/contact/", Contact)
 	http.HandleFunc("/search", blog.SearchHandler)
-	http.HandleFunc("/getBlurb", GetBlurb)
+	http.HandleFunc("/Get404BlogPostsRecs", Get404BlogPostsRecs)
 
 	fmt.Println(fmt.Sprintf("Listening on port %s", port))
 	log.Fatal(http.ListenAndServe(port, nil))
