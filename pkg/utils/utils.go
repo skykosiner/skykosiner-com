@@ -2,6 +2,7 @@ package utils
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"net/smtp"
@@ -13,9 +14,14 @@ import (
 	"github.com/russross/blackfriday"
 )
 
+type BlogPost404 struct {
+	title string
+	blurb string
+}
+
 func SendMail(body []byte) error {
 	auth := smtp.PlainAuth("", "ykosiner@gmail.com", os.Getenv("GMAIL_PASSWORD"), "smtp.gmail.com")
-	to := []string{"ykosiner@gmail.com"}
+	to := []string{"sky@skykosiner.com"}
 	err := smtp.SendMail("smtp.gmail.com:587", auth, "ykosiner@gmail.com", to, body)
 
 	return err
@@ -115,4 +121,75 @@ func ListBlogPosts(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Fprintf(w, "%s", strReturn)
+}
+
+func Get404BlogPostsRecs(w http.ResponseWriter, r *http.Request) {
+	var postsArr []BlogPost404
+	posts, err := os.ReadDir("./blog/publish")
+
+	if err != nil {
+		log.Fatal("Error getting blurbs for post ", err)
+	}
+
+	for _, post := range posts {
+		var blurbArr []string
+		var blurb string
+		title := post.Name()
+		file, err := os.Open(fmt.Sprintf("./blog/publish/%s", title))
+
+		if err != nil {
+			log.Fatal("Error getting blurbs for post", err)
+		}
+
+		defer file.Close()
+
+		bytes, err := ioutil.ReadAll(file)
+
+		if err != nil {
+			log.Fatal("Error getting blurbs for post", err)
+		}
+
+		lines := strings.Split(string(bytes), "\n")
+
+		for idx, line := range lines {
+			if idx == 0 || idx == 1 {
+				continue
+			}
+
+			if len(blurbArr) > 4 {
+				break
+			}
+
+			blurbArr = append(blurbArr, line)
+			blurb += line
+		}
+
+		postsArr = append(postsArr, BlogPost404{strings.Split(title, ".md")[0], string(blackfriday.MarkdownBasic([]byte(blurb)))})
+	}
+
+	fmt.Fprintf(w, "%s", postsArr)
+}
+
+func Contact(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Redirect(w, r, "/html/contact.html", http.StatusSeeOther)
+	}
+
+	if strings.Contains(r.FormValue("name"), "Mike") {
+		http.Redirect(w, r, "/html/spam.html", http.StatusSeeOther)
+		return
+	}
+
+	msg := fmt.Sprintf(`To: "Sky Kosiner" <sky@skykosiner.com>
+From: "Sky Kosiner" <ykosiner@gmail.com>
+Subject: Contact Form skykosiner.com | %s`, r.FormValue("name"))
+	body := []byte(fmt.Sprintf("%s\nName %s\nEmail %s\nMessage\n%s", msg, r.FormValue("name"), r.FormValue("email"), r.FormValue("message")))
+
+	err := SendMail(body)
+
+	if err != nil {
+		fmt.Fprintf(w, "Error sending email %s", err)
+	} else {
+		http.Redirect(w, r, "/html/contact.html", http.StatusOK)
+	}
 }
