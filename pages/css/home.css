@@ -1,0 +1,55 @@
+.content {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 5rem;
+}
+
+.content > h2 > a {
+    font-size: 30px;
+}
+
+.more {
+    padding-top: 1rem;
+}
+
+@media all and (max-width: 1010px) {
+    .content {
+        padding: 1rem;
+    }
+}
+
+@media all and (max-width: 1679px) {
+    .hero {
+        display: none;
+    }
+
+    .image {
+        display: none;
+    }
+
+
+    .text {
+        width: 100%;
+    }
+}
+
+.image > img {
+    width: 650px;
+    height: 466px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7rem 15rem;
+    overflow: hidden;
+}
+
+.text {
+    width: 40%;
+}
+
+.text > h2 > a {
+    font-size: 30px;
+}

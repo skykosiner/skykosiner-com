@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{{.Title}}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/index.css" />
+
+        <link rel="icon" type="image/png" href="/public/images/favicon.png">
+        <!-- Place favicon.ico in the root directory -->
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="main">
+                <script id="replace_with_navbar" src="/js/navFooter.js"></script>
+                <h1 style="padding-bottom: 1rem;">Search</h1>
+                <div id="text"></div>
+                <script type="text/javascript">
+                    let body = "{{ .Body }}";
+                    body = body.substring(1);
+                    body = body.substring(0, body.length-1);
+                    body = body.split(" ").map(Number);
+
+                    let bodyFinal = "";
+
+                    for (let i = 0; i < body.length; i++) {
+                        bodyFinal = bodyFinal.concat(String.fromCharCode(body[i]));
+                    }
+
+                    const text = document.getElementById("text")
+
+                    console.log(bodyFinal)
+
+                    text.innerHTML = bodyFinal
+                </script>
+            </div>
+        </div>
+
+        <script id="replace_with_footer" src="/js/navFooter.js"></script>
+    </body>
+</html>
