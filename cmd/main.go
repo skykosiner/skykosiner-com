@@ -5,8 +5,11 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"io/ioutil"
 	"path"
+	"strings"
 
+	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 	"github.com/skykosiner-com/pkg/blog"
 	"github.com/skykosiner-com/pkg/book"
@@ -39,15 +42,42 @@ func main() {
 		port = ":8080"
 	}
 
-	fs := FileServerWithCustom404(http.Dir("./pages"))
-	http.Handle("/", fs)
-	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
+	r := mux.NewRouter()
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+
+	r.HandleFunc("/{path:.*}", func(w http.ResponseWriter, r *http.Request) {
+		requestedPath := "pages/" + mux.Vars(r)["path"]
+
+		if requestedPath == "" || strings.HasSuffix(requestedPath, "/") {
+			requestedPath += "index"
+		}
+
+		var contentType string
+
+		if !strings.HasSuffix(requestedPath, ".html") && !strings.HasSuffix(requestedPath, ".md") {
+			requestedPath += ".html"
+		}
+
+		if strings.HasSuffix(requestedPath, ".md") {
+			contentType = "text/plain; charset=utf-8"
+		}
+
+		content, err := ioutil.ReadFile(requestedPath)
+		if err != nil {
+			http.Error(w, "Page not found", http.StatusNotFound)
+			return
+		}
+
+		w.Header().Set("Content-Type", contentType)
+		w.Write(content)
+	})
+
+	http.Handle("/",r )
 	http.HandleFunc("/blog/", blog.MakeHandler(blog.ViewHandler))
 	http.HandleFunc("/book/", book.MakeHandler(book.ViewHandler))
 	http.HandleFunc("/getPosts/", utils.ListBlogPosts)
-	// http.HandleFunc("/getPostsWithDate/", utils.ListBlogPostsWithDate)
 	http.HandleFunc("/getBooks/", utils.ListBookNotes)
-	http.HandleFunc("/contact/", utils.Contact)
+	http.HandleFunc("/contactForm/", utils.Contact)
 	http.HandleFunc("/search", blog.SearchHandler)
 	http.HandleFunc("/Get404BlogPostsRecs/", utils.Get404BlogPostsRecs)
 

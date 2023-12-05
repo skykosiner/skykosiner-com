@@ -19,7 +19,7 @@ type BookPage struct {
 }
 
 var validPath = regexp.MustCompile("^/(book)/([a-zA-Z0-9]+)$")
-var templates = template.Must(template.ParseFiles("./pages/html/book.html"))
+var templates = template.Must(template.ParseFiles("./pages/book.html"))
 
 func loadPage(title string) (*BookPage, error) {
 	filename := "./books/" + title + ".md"

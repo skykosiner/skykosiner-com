@@ -1,8 +1,7 @@
-// Loop over each post and make an li tag with a link to the page of the post
-function HandleBooks(posts) {
-    const booksArr = posts.split(" ")
-    let bookHTML = ""
-    booksArr.map((post) => {
+function HandleBlogPosts(posts) {
+    const postsArr = posts.split(" ")
+    let postHTML = ""
+    postsArr.map((post) => {
         // Because Mac's like to create this weird ass .DS_Store file and sometimes
         // I publish stuff from my MacBook not arch linux (btw)
         if (post === "" || post === "DS_Store" || post.includes(".org")) {
@@ -11,31 +10,29 @@ function HandleBooks(posts) {
 
         // Split the title of the post by new capital letters such as
         // HelloWorld would become Hello world
-        const bookTitleArr = post.split(/(?=[A-Z])/)
-        let bookTitle = ""
+        const postTitleArr = post.split(/(?=[A-Z])/)
+        let postTitle = ""
 
-        bookTitleArr.map((word) => {
-            bookTitle += " " + word
+        postTitleArr.map((word) => {
+            postTitle += " " + word
         })
 
-        bookHTML += `<li><a href="/book/${post}">${bookTitle}</a></li/>`
+        postHTML += `<li><a href="/blog/${post}">${postTitle}</a></li/>`
     })
 
-    return bookHTML
+    return postHTML
 }
 
-// Fetch the blog posts and put them into the div with the id posts
-fetch("/getBooks/")
+fetch("/getPosts")
     .then(resp => resp.text())
     .then(data => {
-        const books = document.getElementById("books")
-        const body = HandleBooks(data)
+        const posts = document.getElementById("posts")
+        const body = HandleBlogPosts(data)
 
-        books.innerHTML = body
+        posts.innerHTML = body
     })
 
-
-fetch("/html/nav.html")
+fetch("/nav.html")
 .then(res => res.text())
 .then(text => {
     let oldelem = document.getElementById("replace_with_navbar");
@@ -44,7 +41,7 @@ fetch("/html/nav.html")
     oldelem.parentNode.replaceChild(newelem,oldelem);
 })
 
-fetch("/html/footer.html")
+fetch("/footer.html")
 .then(res => res.text())
 .then(text => {
     let oldelem = document.getElementById("replace_with_footer");

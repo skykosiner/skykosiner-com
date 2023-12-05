@@ -2,9 +2,9 @@
 ## 👩‍💼 Who Am I
 Hello World my name is Sky.
 
-I'm a trans girl who [creates content](/html/links.html) and [codes](https://github.com/skykosiner).
+I'm a trans girl who [creates content](/links.html) and [codes](https://github.com/skykosiner).
 
-![Picture of me](/public/images/me-cropped.jpg)
+![Picture of me](/static/images/me-cropped.jpg)
 
 ## 📝 What I'm working on right now
 * 🎬 [YouTube](https://youtube.com/@SkyKosiner)
@@ -17,7 +17,7 @@ I'm a trans girl who [creates content](/html/links.html) and [codes](https://git
 
 	These days I post on Instagram around 3 times a week, and share all the valuable insights I can find.!
 
-* 📝 [Blogging](/html/blog-page.html)
+* 📝 [Blogging](/blog-page.html)
 	Ever since I started to teach my self how to code and how to make websites I’ve always had this idea of making a blog. It took me over 4 years but I’ve finally committed to a website design I like and a blogging method that I like with just static markdown files.
 
 	Along with my blog I also have an [Email newsletter](https://skykosiner.substack.com/?r=8b9un&utm_campaign=pub-share-checklist) that I write once a month sharing everything I've worked on in that month and some of my favourite things from that past month.
@@ -34,7 +34,7 @@ I'm a trans girl who [creates content](/html/links.html) and [codes](https://git
 
 ## 🗨️ Get in touch
 If you'd like to get it in touch check out some of these links below.
-* [Contact Page](/html/links.html)
+* [Contact Page](/links.html)
 * Email - [sky@skykosiner.com](mailto:sky@skykosiner.com)
 * Discord - sky42069
 * [Instagram](https://instagram.com/kosiner.codes) dm's

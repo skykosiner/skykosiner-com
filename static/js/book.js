@@ -1,8 +1,8 @@
 // Loop over each post and make an li tag with a link to the page of the post
-/* function HandleBlogPosts(posts) {
-    const postsArr = posts.split(" ")
-    let postHTML = ""
-    postsArr.map((post) => {
+function HandleBooks(posts) {
+    const booksArr = posts.split(" ")
+    let bookHTML = ""
+    booksArr.map((post) => {
         // Because Mac's like to create this weird ass .DS_Store file and sometimes
         // I publish stuff from my MacBook not arch linux (btw)
         if (post === "" || post === "DS_Store" || post.includes(".org")) {
@@ -11,35 +11,31 @@
 
         // Split the title of the post by new capital letters such as
         // HelloWorld would become Hello world
-        const postTitleArr = post.split(/(?=[A-Z])/)
-        let postTitle = ""
+        const bookTitleArr = post.split(/(?=[A-Z])/)
+        let bookTitle = ""
 
-        postTitleArr.map((word) => {
-            postTitle += " " + word
+        bookTitleArr.map((word) => {
+            bookTitle += " " + word
         })
 
-        postHTML += `<li><a href="/blog/${post}">${postTitle}</a></li/>`
+        bookHTML += `<li><a href="/book/${post}">${bookTitle}</a></li/>`
     })
 
-    return postHTML
+    return bookHTML
 }
 
 // Fetch the blog posts and put them into the div with the id posts
-fetch("/getPosts/")
+fetch("/getBooks/")
     .then(resp => resp.text())
     .then(data => {
-        const posts = document.getElementById("posts")
-        const postTitle = document.getElementById("post-title")
-        const body = HandleBlogPosts(data)
+        const books = document.getElementById("books")
+        const body = HandleBooks(data)
 
-        if (body !== "") {
-            postTitle.innerHTML = "Blog Posts:"
-        }
+        books.innerHTML = body
+    })
 
-        posts.innerHTML = body
-    }) */
 
-fetch("/html/nav.html")
+fetch("/nav.html")
 .then(res => res.text())
 .then(text => {
     let oldelem = document.getElementById("replace_with_navbar");
@@ -48,7 +44,7 @@ fetch("/html/nav.html")
     oldelem.parentNode.replaceChild(newelem,oldelem);
 })
 
-fetch("/html/footer.html")
+fetch("/footer.html")
 .then(res => res.text())
 .then(text => {
     let oldelem = document.getElementById("replace_with_footer");

@@ -77,7 +77,7 @@ func SearchBlog(query string) string {
 
 // Custom 404 page
 func NotFound(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "/html/404.html", http.StatusSeeOther)
+	http.Redirect(w, r, "/404.html", http.StatusSeeOther)
 }
 
 
@@ -172,11 +172,11 @@ func Get404BlogPostsRecs(w http.ResponseWriter, r *http.Request) {
 
 func Contact(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Redirect(w, r, "/html/contact.html", http.StatusSeeOther)
+		http.Redirect(w, r, "/contact", http.StatusSeeOther)
 	}
 
 	if strings.Contains(r.FormValue("name"), "Mike") {
-		http.Redirect(w, r, "/html/spam.html", http.StatusSeeOther)
+		http.Redirect(w, r, "/spam", http.StatusSeeOther)
 		return
 	}
 
@@ -190,6 +190,6 @@ Subject: Contact Form skykosiner.com | %s`, r.FormValue("name"))
 	if err != nil {
 		fmt.Fprintf(w, "Error sending email %s", err)
 	} else {
-		http.Redirect(w, r, "/html/contact.html", http.StatusOK)
+		http.Redirect(w, r, "/contact", http.StatusOK)
 	}
 }

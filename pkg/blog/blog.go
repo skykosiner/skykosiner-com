@@ -16,7 +16,7 @@ type BlogPage struct {
 }
 
 var validPath = regexp.MustCompile("^/(blog)/([a-zA-Z0-9]+)$")
-var templates = template.Must(template.ParseFiles("./pages/html/blog.html", "./pages/html/search.html"))
+var templates = template.Must(template.ParseFiles("./pages/blog.html", "./pages/search.html"))
 
 func loadPage(title string) (*BlogPage, error) {
 	filename := "./blog/publish/" + title + ".md"

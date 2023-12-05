@@ -1,4 +1,5 @@
-function HandleBlogPosts(posts) {
+// Loop over each post and make an li tag with a link to the page of the post
+/* function HandleBlogPosts(posts) {
     const postsArr = posts.split(" ")
     let postHTML = ""
     postsArr.map((post) => {
@@ -23,16 +24,22 @@ function HandleBlogPosts(posts) {
     return postHTML
 }
 
-fetch("/getPosts")
+// Fetch the blog posts and put them into the div with the id posts
+fetch("/getPosts/")
     .then(resp => resp.text())
     .then(data => {
         const posts = document.getElementById("posts")
+        const postTitle = document.getElementById("post-title")
         const body = HandleBlogPosts(data)
 
-        posts.innerHTML = body
-    })
+        if (body !== "") {
+            postTitle.innerHTML = "Blog Posts:"
+        }
 
-fetch("/html/nav.html")
+        posts.innerHTML = body
+    }) */
+
+fetch("/nav.html")
 .then(res => res.text())
 .then(text => {
     let oldelem = document.getElementById("replace_with_navbar");
@@ -41,7 +48,7 @@ fetch("/html/nav.html")
     oldelem.parentNode.replaceChild(newelem,oldelem);
 })
 
-fetch("/html/footer.html")
+fetch("/footer.html")
 .then(res => res.text())
 .then(text => {
     let oldelem = document.getElementById("replace_with_footer");
