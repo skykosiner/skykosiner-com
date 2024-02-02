@@ -1,23 +1,16 @@
 # Tools I'm using
 ## Software
-### [Dwm](https://github.com/skykosiner/dwm)
+### [Qtile](https://qtile.org)
 I find normal floating window mangers very inefficient, so I use a tiling
-window manager. The one which I like the most is Dwm. I used to use i3, but I
+window manager. The one which I like the most is qtile. I used to use i3, but I
 got tired of its design, and it's unique tiling methods compared to other
 winnow mangers.
 
-### [Dwm Blocks](https://github.com/skykosiner/dwmblocks)
-By default in dwm you need to use xsetroot -name in a while loop to update and
-set your status bar. I don't like this, as I don't need everything in my
-status bar updating every second, and with some things I only want it to update
-on a kill signal. Dwmblocks allows me to change the update time of
-each script, and with some scripts such as volume it only updates when a kill
-signal is sent.
-
-### [St](https://github.com/skykosiner/st)
-I've played around with all the big terminals, but recently I've been going
-down the suckless software route, so I've been using the st terminal. I cloned
-Luke Smith's build of st and changed everything to my liking.
+### [Kitty](https://github.com/kovidgoyal/kitty)
+I've used almost all big the terminals and after playing around with all of
+them I decided that kitty is my favorite terminal. It does everything I need it
+to do, it's fast, and the config I need to get it working well for me is very
+minimal.
 
 ### [Neovim](https://github.com/neovim/neovim)
 For almost 3 years now I've used neovim as my main text editor of choice. It's
@@ -33,8 +26,8 @@ I like to do everything I can from a terminal, so I use the lf file browser to
 manage all my basic file needs without using a GUI. I'm able to use a custom
 set of key binds I've setup (vim keybinds) and use bash script to add more
 functions.
-### [Zsh](https://zsh.sourceforge.io/)
 
+### [Zsh](https://zsh.sourceforge.io/)
 Instead of using bash I like to use zsh, as it's a more modern shell. But I'll
 still write all my scripts in bash.
 
@@ -53,6 +46,7 @@ from Luke Smith. I'm also running my own custom email server.
 ### Desk peripherals
 (Just a little heads up kinesis sent me the blank keycaps for my advantage 2, and they sent me the kinesis tko for review)
 * [Primary keyboard (Kinesis Advantage 2 Cherry red (With blank keycaps from kinesis)](https://www.amazon.com/Kinesis-Advantage2-Ergonomic-Keyboard-KB600LFQ/dp/B07K1SMRGS)
+* [Seconadry Primary keyboard (Moonlander with kailh copper switches)](http://zsa.io/moonlander)
 * [Gaming keyboard (Kinesis tko (Kahli white)](https://www.amazon.co.uk/Mechanical-Keyboard-Switches-Spacebar-Aluminum/dp/B08NZYPQTQ)
 * [Razer Viper](https://www.amazon.co.uk/Razer-Viper-Lightweight-Opto-Mechanical-Ergonomics/dp/B07V6Z9RW4)
 * [Sony wh100xm3](https://www.amazon.co.uk/Sony-WH-1000XM3-Wireless-Cancelling-Headphones-Black/dp/B07GDR2LYK)

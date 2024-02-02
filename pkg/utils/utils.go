@@ -28,7 +28,7 @@ func SendMail(body []byte) error {
 }
 
 func SearchBlog(query string) string {
-	cmd := exec.Command("find", "./blog/publish", "-name", "*"+query+"*.md")
+	cmd := exec.Command("find", "./blog/publish", "-iname", "*"+query+"*.md")
 	out, err := cmd.Output()
 
 	if err != nil {
@@ -80,7 +80,6 @@ func NotFound(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/404.html", http.StatusSeeOther)
 }
 
-
 func ListBookNotes(w http.ResponseWriter, r *http.Request) {
 	var bookArr []string
 	var strReturn string
@@ -96,7 +95,7 @@ func ListBookNotes(w http.ResponseWriter, r *http.Request) {
 
 	for _, book := range bookArr {
 		book = strings.Trim(book, ".md")
-		strReturn = fmt.Sprintf("%s %s",strReturn, book)
+		strReturn = fmt.Sprintf("%s %s", strReturn, book)
 	}
 
 	fmt.Fprintf(w, "%s", strReturn)
@@ -117,7 +116,7 @@ func ListBlogPosts(w http.ResponseWriter, r *http.Request) {
 
 	for _, post := range postArr {
 		post = strings.Trim(post, ".md")
-		strReturn = fmt.Sprintf("%s %s",strReturn, post)
+		strReturn = fmt.Sprintf("%s %s", strReturn, post)
 	}
 
 	fmt.Fprintf(w, "%s", strReturn)

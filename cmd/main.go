@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
-	"io/ioutil"
 	"path"
 	"strings"
 
@@ -72,7 +72,7 @@ func main() {
 		w.Write(content)
 	})
 
-	http.Handle("/",r )
+	http.Handle("/", r)
 	http.HandleFunc("/blog/", blog.MakeHandler(blog.ViewHandler))
 	http.HandleFunc("/book/", book.MakeHandler(book.ViewHandler))
 	http.HandleFunc("/getPosts/", utils.ListBlogPosts)
