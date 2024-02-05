@@ -45,9 +45,10 @@ from Luke Smith. I'm also running my own custom email server.
 
 ### Desk peripherals
 (Just a little heads up kinesis sent me the blank keycaps for my advantage 2, and they sent me the kinesis tko for review)
-* [Primary keyboard (Kinesis Advantage 2 Cherry red (With blank keycaps from kinesis)](https://www.amazon.com/Kinesis-Advantage2-Ergonomic-Keyboard-KB600LFQ/dp/B07K1SMRGS)
-* [Seconadry Primary keyboard (Moonlander with kailh copper switches)](http://zsa.io/moonlander)
+* [Primary keyboard (Moonlander with kailh copper switches)](http://zsa.io/moonlander)
+* [Secondary Primary keyboard (Kinesis Advantage 2 Cherry red with blank keycaps from kinesis)](https://www.amazon.com/Kinesis-Advantage2-Ergonomic-Keyboard-KB600LFQ/dp/B07K1SMRGS)
 * [Gaming keyboard (Kinesis tko (Kahli white)](https://www.amazon.co.uk/Mechanical-Keyboard-Switches-Spacebar-Aluminum/dp/B08NZYPQTQ)
+* [Logitech mx master 3](https://www.amazon.co.uk/Logitech-Master-Performance-Ultra-fast-Scrolling/dp/B07W5JKHFZ/ref=sr_1_3_mod_primary_new?keywords=mx+master&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=8-3)
 * [Razer Viper](https://www.amazon.co.uk/Razer-Viper-Lightweight-Opto-Mechanical-Ergonomics/dp/B07V6Z9RW4)
 * [Sony wh100xm3](https://www.amazon.co.uk/Sony-WH-1000XM3-Wireless-Cancelling-Headphones-Black/dp/B07GDR2LYK)
 * [Blue yeti snsowball](https://www.amazon.com/Blue-Snowball-Microphone-Textured-White/dp/B000EOPQ7E)
