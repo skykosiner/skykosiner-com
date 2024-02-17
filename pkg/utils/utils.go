@@ -179,6 +179,11 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if r.FormValue("name") == "" || r.FormValue("email") == "" || r.FormValue("message") == "" {
+		http.Redirect(w, r, "/contact", http.StatusSeeOther)
+		return
+	}
+
 	msg := fmt.Sprintf(`To: "Sky Kosiner" <sky@skykosiner.com>
 From: "Sky Kosiner" <ykosiner@gmail.com>
 Subject: Contact Form skykosiner.com | %s`, r.FormValue("name"))
