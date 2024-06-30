@@ -13,7 +13,7 @@ import (
 
 type BookPage struct {
 	BookTitle string
-	Body []byte
+	Body      []byte
 	// LinkToBook string
 	// Author string
 }
