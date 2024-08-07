@@ -1,5 +1,5 @@
 services:
-  backend:
+  website-me-daddy:
     build:
       context: .
       dockerfile: Dockerfile.dev
