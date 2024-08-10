@@ -50,11 +50,8 @@ func MakeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 func ViewHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := loadPage(title)
 
-	if p == nil {
+	if p == nil || err != nil {
 		utils.NotFound(w, r)
-	}
-
-	if err != nil {
 		return
 	}
 
