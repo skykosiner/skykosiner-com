@@ -87,6 +87,7 @@ func ListBookNotes(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		log.Fatal("Error getting books")
+		return
 	}
 
 	for _, book := range books {
