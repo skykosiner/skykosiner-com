@@ -1,14 +1,15 @@
 # Tools I'm using
 ## Software
-### [Qtile](https://qtile.org)
+### [i3](https://i3wm.org/)
 I find normal floating window mangers very inefficient, so I use a tiling
-window manager. The one which I like the most is qtile. I used to use i3, but I
-got tired of its design, and it's unique tiling methods compared to other
-winnow mangers.
+window manager. The one which I like the most is i3. I've played around with
+all the big ones, and while the others offer some fancy features, I keep on
+going back to i3 because it's the most light weight (yes it feels more light
+weight then dwm).
 
-### [Kitty](https://github.com/kovidgoyal/kitty)
+### [Wezterm](https://github.com/wez/wezterm)
 I've used almost all big the terminals and after playing around with all of
-them I decided that kitty is my favorite terminal. It does everything I need it
+them I decided that wezterm is my favorite terminal. It does everything I need it
 to do, it's fast, and the config I need to get it working well for me is very
 minimal.
 
@@ -40,14 +41,15 @@ from Luke Smith. I'm also running my own custom email server.
 ## Hardware
 * [Ereader (Kindle osasis)](https://www.amazon.co.uk/amazon-kindle-oasis-8-gb-adjustable-warm-light-waterproof-graphite/dp/B07L5GDTYY)
 ### Monitors
-* [Main LG Monitor (144hz 2560x1400)]()
-* [Secondary LG Monitor (144hz 1920x1080)]()
+* [Main MSI Monitor (32" 170hz 2560x1400)]()
+* [Secondary LG Monitor (27" 144hz 1920x1080)]()
 
 ### Desk peripherals
-(Just a little heads up kinesis sent me the blank keycaps for my advantage 2, and they sent me the kinesis tko for review)
-* [Primary keyboard (Moonlander with kailh copper switches)](http://zsa.io/moonlander)
-* [Secondary Primary keyboard (Kinesis Advantage 2 Cherry red with blank keycaps from kinesis)](https://www.amazon.com/Kinesis-Advantage2-Ergonomic-Keyboard-KB600LFQ/dp/B07K1SMRGS)
-* [Gaming keyboard (Kinesis tko (Kahli white)](https://www.amazon.co.uk/Mechanical-Keyboard-Switches-Spacebar-Aluminum/dp/B08NZYPQTQ)
+(Just an fyi, Kinesis sent me all both the 360, tko, and the blank keycaps for the advantage 2)
+* [Kinesis Advantage 360 Pro With kailh whites](https://kinesis-ergo.com/shop/advantage360-signature/)
+* [Kinesis Advantage 2 Cherry red with blank keycaps from kinesis](https://www.amazon.com/Kinesis-Advantage2-Ergonomic-Keyboard-KB600LFQ/dp/B07K1SMRGS)
+* [Kinesis tko Kahli white](https://www.amazon.co.uk/Mechanical-Keyboard-Switches-Spacebar-Aluminum/dp/B08NZYPQTQ)
+* [Moonlander with kailh copper switches](http://zsa.io/moonlander)
 * [Logitech mx master 3](https://www.amazon.co.uk/Logitech-Master-Performance-Ultra-fast-Scrolling/dp/B07W5JKHFZ/ref=sr_1_3_mod_primary_new?keywords=mx+master&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=8-3)
 * [Razer Viper](https://www.amazon.co.uk/Razer-Viper-Lightweight-Opto-Mechanical-Ergonomics/dp/B07V6Z9RW4)
 * [Sony wh100xm3](https://www.amazon.co.uk/Sony-WH-1000XM3-Wireless-Cancelling-Headphones-Black/dp/B07GDR2LYK)
