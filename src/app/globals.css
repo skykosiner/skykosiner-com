@@ -17,3 +17,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+a {
+    transition: 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #3897D3;
+}
