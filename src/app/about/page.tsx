@@ -1,7 +1,12 @@
+import AboutText from "../markdown/about.mdx";
+import styles from "./about.module.css";
+
 export default function About(): JSX.Element {
     return (
-        <div>
-            <h1>About deez nuts</h1>
+        <div className="center" style={{ flexDirection: "column" }}>
+            <div style={{ width: "80%" }} className={styles.about}>
+                <AboutText />
+            </div>
         </div>
     );
 }

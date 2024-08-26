@@ -1,0 +1,10 @@
+.about>h1 {
+    text-align: center;
+}
+
+.about>p,
+.about>h2,
+.about>ul>li {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
