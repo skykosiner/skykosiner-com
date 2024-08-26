@@ -1,3 +1,17 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.image {
+    margin-left: 9rem;
+}
+
+.links {
+    margin-right: 9rem;
+}
+
 .links>a {
     margin-left: 0.5rem;
 }
