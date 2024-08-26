@@ -4,3 +4,10 @@
     color: #333333;
     background-color: #F2F2F2;
 }
+
+html,
+body {
+    position: relative;
+    min-height: 100vh;
+    /*padding-bottom: 5rem;*/
+}
