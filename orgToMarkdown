@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-cd ./blog/publish
-post=$(ls | fzf)
-emacs --batch --eval "(require 'org)" $post --funcall org-md-export-to-markdown
