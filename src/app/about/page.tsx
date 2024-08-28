@@ -1,4 +1,4 @@
-import AboutText from "../markdown/about.mdx";
+import AboutText from "./about.mdx";
 import styles from "./about.module.css";
 
 export default function About(): JSX.Element {
