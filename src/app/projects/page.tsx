@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import styles from "./projects.module.css";
 import { useState } from "react";
 
 type Project = {
@@ -36,10 +38,11 @@ export default function Projects(): JSX.Element {
     }
 
     return (
-        <div>
+        <div className={styles.projects}>
+            <h1 style={{ paddingBottom: "0.3rem" }}>Projects</h1>
             {projects.map(project => (
-                <div key={project.name}>
-                    <h3>{project.name}</h3>
+                <div key={project.name} className={styles.project}>
+                    <Link href={`${project.url}`} target=" _blank"><h3>{project.name}</h3></Link>
                     {expanded[project.name] && <p>{project.body}</p>}
                     <button onClick={() => setReadingBody(project.name)}>
                         {expanded[project.name] ? "Read Less" : "Read More"}
