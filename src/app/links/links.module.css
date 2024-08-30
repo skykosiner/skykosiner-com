@@ -1,0 +1,21 @@
+.me {
+    border-radius: 50%;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    transition: 0.3s ease all;
+}
+
+.link:hover {
+    transform: scale(1.1);
+}
