@@ -1,6 +1,8 @@
 import { lstatSync, readdirSync } from "fs";
 import path from "path";
 import { RenderPosts } from "./render-posts";
+import Image from "next/image";
+import styles from "./blog.module.css";
 
 export interface Post {
     slug: string,
@@ -30,7 +32,11 @@ export async function getPosts(): Promise<Post[]> {
 export default async function Blog(): Promise<JSX.Element> {
     const posts = await getPosts();
     return (
-        <div>
+        <div className="center" style={{ flexDirection: "column" }}>
+            <h1>Blog</h1>
+            <p>I like to write about Tech, Productivity, Books, and Coding</p>
+            <Image src="/typing-on-ipad.png" width="600" height="550" alt="Typing on iPad" />
+            flex-direction: column;
             <RenderPosts posts={posts} />
         </div>
     );

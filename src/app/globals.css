@@ -9,7 +9,7 @@ html,
 body {
     position: relative;
     min-height: 125vh;
-    /*padding-bottom: 5rem;*/
+    padding-bottom: 2rem;
 }
 
 .center {
