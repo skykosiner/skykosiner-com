@@ -1,0 +1,7 @@
+.post {
+    width: 80%;
+}
+
+.post>p {
+    padding-bottom: 0.5rem;
+}
