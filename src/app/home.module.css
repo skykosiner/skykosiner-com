@@ -42,3 +42,9 @@
 .posts {
     width: 55%;
 }
+
+@media all and (max-width: 1010px) {
+    .hero {
+        width: 90%;
+    }
+}

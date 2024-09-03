@@ -39,7 +39,7 @@ export default function Projects(): JSX.Element {
 
     return (
         <div className={styles.projects}>
-            <h1 style={{ paddingBottom: "0.3rem" }}>Projects</h1>
+            <h1 style={{ paddingBottom: "0.3rem" }} className={styles.title}>Projects</h1>
             {projects.map(project => (
                 <div key={project.name} className={styles.project}>
                     <Link href={`${project.url}`} target=" _blank"><h3>{project.name}</h3></Link>

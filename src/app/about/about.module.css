@@ -8,3 +8,10 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
+
+@media all and (max-width: 1010px) {
+    .about>h1 {
+        font-size: 3rem;
+        padding-bottom: 0.3rem;
+    }
+}

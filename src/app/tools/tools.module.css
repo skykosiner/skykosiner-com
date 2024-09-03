@@ -16,3 +16,9 @@
 .tools>div>p {
     padding-top: 0.5rem;
 }
+
+@media all and (max-width: 1010px) {
+    .tools>div>h1 {
+        font-size: 3rem;
+    }
+}
