@@ -18,7 +18,7 @@ export async function getPosts(): Promise<Post[]> {
     // Retrieve metadata from MDX files
     const posts = await Promise.all(
         slugs.map(async (name) => {
-            const { metadata } = await import(`/Users/sky/personal/skykosiner-com/src/app/blog/${name}/page.mdx`);
+            const { metadata } = await import(`../../../src/app/blog/${name}/page.mdx`);
             return { slug: name, ...metadata };
         })
     );
@@ -36,7 +36,6 @@ export default async function Blog(): Promise<JSX.Element> {
             <h1>Blog</h1>
             <p>I like to write about Tech, Productivity, Books, and Coding</p>
             <Image src="/typing-on-ipad.png" width="600" height="550" alt="Typing on iPad" />
-            flex-direction: column;
             <RenderPosts posts={posts} />
         </div>
     );
