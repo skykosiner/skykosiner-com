@@ -20,6 +20,11 @@ const projects: Array<Project> = [
         name: "statusline.nvim",
         url: "https://github.com/skykosiner/statusline.nvim",
         body: "One of my favorite things to do is to spend time making Neovim more my own by customizing everything I can. I wanted to create a more useful status line that showed more relevant info. So I took it into my own hands to create a status line that had everything I wanted and looked the way I wanted using Lua."
+    },
+    {
+        name: "todoist.nvim",
+        url: "https://github.com/skykosiner/todoist.nvim",
+        body: "I use todoist to manage my life and to do list, but all the plugins I could find to interact with todoist from inside neovim didn't work or were just very laggy. I decided to make this plugin so that I could do almost everything I need to do from todoist without ever having to leave vim.",
     }
 ]
 

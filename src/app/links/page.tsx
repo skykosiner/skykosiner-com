@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./links.module.css";
-import useLatestVideo from "../hooks/useLatestVideo";
+import useFetchVideos from "../hooks/useFetchVideos";
 
 type Link = {
     name: string,
@@ -39,17 +39,13 @@ const links: Array<Link> = [
 ]
 
 export default function Links(): JSX.Element {
-    const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY
-    const { latestVideo, loading, error } = useLatestVideo({
-        apiKey: apiKey as string,
-        channelId: "UCceuqcaS7oAGBYMBEhTyDEQ",
-    });
+    const video = useFetchVideos();
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
-    if (!latestVideo) return <p>No video available</p>;
+    if (video === null) return <p>No video available</p>;
 
-    links[0].url = latestVideo.videoUrl
+    console.log(video);
+    //@ts-ignore
+    links[0].url = video.data.videoUrl
 
     return (
         <div className="center" style={{ flexDirection: "column" }}>

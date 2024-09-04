@@ -31,3 +31,14 @@
 .post:hover * {
     color: #3897D3;
 }
+
+
+@media all and (max-width: 1010px) {
+    .mobile {
+        width: 80%;
+    }
+
+    .mobile>h1 {
+        font-size: 3rem;
+    }
+}

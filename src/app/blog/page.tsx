@@ -16,7 +16,7 @@ export default async function Page() {
 
     return (
         <div className={styles.wrap}>
-            <div>
+            <div className={styles.mobile}>
                 <h1>Blog</h1>
                 <h2>I like to write about Tech, Productivity, Books, and Coding</h2>
 
