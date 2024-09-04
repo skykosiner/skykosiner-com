@@ -1,0 +1,33 @@
+.contact {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact>p {
+    padding-top: 0.5rem;
+}
+
+.contact>ul {
+    padding-top: 0.5rem;
+    margin-right: 16rem;
+}
+
+@media all and (max-width: 1010px) {
+    .contact {
+        padding: 1rem;
+    }
+
+    .contact>h1 {
+        font-size: 3rem;
+    }
+
+    .contact>p,
+    .contact>ul>li {
+        font-size: 1.3rem;
+    }
+
+    .contact>ul>li {
+        padding-left: 4rem;
+    }
+}

@@ -1,0 +1,50 @@
+.hero {
+    padding-top: 5rem;
+    margin-bottom: 100vh;
+}
+
+.hero>h1 {
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+.hero>h2 {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.hero>button {
+    margin-top: 0.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 0.6rem;
+    background-color: #3897D3;
+    transition: 0.3s ease all;
+}
+
+.hero>button:last-child {
+    margin-left: 0.5rem;
+}
+
+.hero>button:hover {
+    transform: scale(1.1);
+}
+
+.hero>p {
+    padding-top: 0.5rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.posts {
+    width: 55%;
+}
+
+@media all and (max-width: 1010px) {
+    .hero {
+        width: 90%;
+    }
+}
