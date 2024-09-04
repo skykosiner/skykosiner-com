@@ -9,9 +9,9 @@ export default async function Home(): Promise<JSX.Element> {
     return (
         <div className="center" style={{ flexDirection: "column" }}>
             <div className={styles.hero}>
-                <h1>Hey Guys, I'm Sky.</h1>
-                <h2>I'm a self taught <a href="https://github.com/skykosiner" target=" _blank">developer</a> and <Link href="/">content creator</Link>.</h2>
-                <p>On this website you can learn more <Link href="/about">about me</Link>, find out what I'm working on, and <Link href="/contact">contact me.</Link></p>
+                <h1>Hey Guys, I&apos;m Sky.</h1>
+                <h2>I&apos;m a self taught <a href="https://github.com/skykosiner" target=" _blank">developer</a> and <Link href="/">content creator</Link>.</h2>
+                <p>On this website you can learn more <Link href="/about">about me</Link>, find out what I&apos;m working on, and <Link href="/contact">contact me.</Link></p>
 
                 <ScrollIntoView />
                 <ContactMe />
@@ -20,7 +20,7 @@ export default async function Home(): Promise<JSX.Element> {
             <div className={styles.posts} id="posts">
                 <h2>Posts:</h2>
                 {posts.map(post => (
-                    <Link href={`/blog/${post.slug}`}>
+                    <Link href={`/blog/${post.slug}`} key={post.slug}>
                         <h3>{post.title}</h3>
                     </Link>
                 ))}

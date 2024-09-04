@@ -51,7 +51,7 @@ function useLatestVideo({ apiKey, channelId }: UseLatestVideoProps) {
         };
 
         fetchLatestVideo();
-    }, [channelId, process.env.YOUTUBE_API_KEY]);
+    }, [channelId, apiKey]);
 
     return { latestVideo, loading, error };
 };
