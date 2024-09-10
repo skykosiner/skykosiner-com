@@ -59,4 +59,9 @@
         margin-left: 0;
         margin-bottom: 0.5rem;
     }
+
+    .contactButtons>a:hover {
+        color: #333333;
+        transform: scale(1);
+    }
 }

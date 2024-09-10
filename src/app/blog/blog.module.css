@@ -47,6 +47,10 @@
         flex-direction: column;
     }
 
+    .image>img {
+        box-shadow: none;
+    }
+
     .mobile>h1 {
         font-size: 3rem;
     }
