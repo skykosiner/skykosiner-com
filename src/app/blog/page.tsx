@@ -2,17 +2,11 @@ import Link from "next/link";
 import { getPosts } from "./utils";
 import Image from "next/image";
 import styles from "./blog.module.css";
+import { renderDate } from "../utils";
 
 export default async function Page() {
     const posts = await getPosts();
 
-    function renderDate(date: string): string {
-        const day = date.split(" ")[0];
-        const monh = date.split(" ")[1];
-        const year = date.split(", ")[1];
-
-        return `${day} ${monh.replace(",", "")} ${year}`
-    }
 
     return (
         <div className={styles.wrap}>
