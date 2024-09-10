@@ -16,13 +16,19 @@ export default function NavBar(): JSX.Element {
     }
 
     function handleClick() {
-        setOpen(!open);
+        if (!windowSize.width) {
+            return;
+        }
+
+        if (windowSize.width < 900) {
+            setOpen(!open);
+        }
     }
 
     return (
         <div className={styles.nav}>
             <div className={styles.image}>
-                <Link href="/">
+                <Link href="/" onClick={handleClick}>
                     <Image src="/logo.svg" width="80" height="80" alt="logo" />
                 </Link>
             </div>
