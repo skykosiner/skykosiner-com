@@ -13,9 +13,8 @@
 .post {
     margin-top: 0.9rem;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     background-color: #FFFFFF;
-    padding: 0.5rem;
+    padding: 0.9rem;
     transition: 0.3s ease all;
 }
 
@@ -40,6 +39,10 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+
+    .image {
+        box-shadow: none;
     }
 
     .mobile>h1 {
