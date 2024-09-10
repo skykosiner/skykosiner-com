@@ -31,7 +31,7 @@ export default function Contact(): JSX.Element {
 
                 <div className={styles.contactButtons}>
                     {contactButtons.map(item => (
-                        <a href={item.url} target=" _blank">{item.name}</a>
+                        <a href={item.url} target=" _blank" key={item.name}>{item.name}</a>
                     ))}
                     <a onClick={discord}>Discord</a>
                 </div>
