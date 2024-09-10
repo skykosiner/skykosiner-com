@@ -16,6 +16,10 @@ export default function NavBar(): JSX.Element {
     }
 
     function handleClick() {
+        setOpen(!open);
+    }
+
+    function handleClickForImageMoblie() {
         if (!windowSize.width) {
             return;
         }
@@ -28,7 +32,7 @@ export default function NavBar(): JSX.Element {
     return (
         <div className={styles.nav}>
             <div className={styles.image}>
-                <Link href="/" onClick={handleClick}>
+                <Link href="/" onClick={handleClickForImageMoblie}>
                     <Image src="/logo.svg" width="80" height="80" alt="logo" />
                 </Link>
             </div>
