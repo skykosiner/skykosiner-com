@@ -24,3 +24,10 @@ a {
 a:hover {
     color: #3897D3;
 }
+
+
+@media all and (max-width: 1010px) {
+    a:hover {
+        color: #333333;
+    }
+}

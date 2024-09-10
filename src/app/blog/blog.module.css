@@ -54,4 +54,12 @@
     .mobile>h1 {
         font-size: 3rem;
     }
+
+    .post:hover {
+        transform: scale(1);
+    }
+
+    .post:hover * {
+        color: #333333;
+    }
 }

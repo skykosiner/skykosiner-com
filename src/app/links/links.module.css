@@ -20,3 +20,9 @@
 .link:hover {
     transform: scale(1.1);
 }
+
+@media all and (max-width: 1010px) {
+    .link:hover {
+        transform: scale(1);
+    }
+}
