@@ -1,0 +1,46 @@
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.posts {
+    padding-top: 1rem;
+    width: 40%;
+}
+
+.post {
+    margin-top: 0.9rem;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    padding: 0.9rem;
+    transition: 0.3s ease all;
+}
+
+.post:hover {
+    transform: scale(1.009);
+}
+
+.post * {
+    text-decoration: none;
+    background-color: #FFFFFF;
+    transition: 0.3s ease all;
+}
+
+.post:hover * {
+    color: #3897D3;
+}
+
+@media all and (max-width: 1010px) {
+    .posts {
+        width: 90%;
+    }
+
+    .post:hover {
+        transform: scale(1);
+    }
+
+    .post:hover * {
+        color: #333333;
+    }
+}
