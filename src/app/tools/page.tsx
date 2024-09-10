@@ -7,6 +7,6 @@ export default function Tools(): JSX.Element {
             <div style={{ width: "80%", flexDirection: "column" }}>
                 <ToolMd />
             </div>
-        </div >
+        </div>
     );
 }

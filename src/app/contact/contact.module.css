@@ -4,13 +4,33 @@
     flex-direction: column;
 }
 
-.contact>p {
-    padding-top: 0.5rem;
+.contactButtons {
+    display: flex;
+    padding-top: 0.3rem;
 }
 
-.contact>ul {
+.contactButtons>a:first-child {
+    margin-left: 0;
+}
+
+.contactButtons>a {
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 0.5rem;
+    text-decoration: none;
+    background: #3897D3;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.contactButtons>a:hover {
+    color: #333333;
+    transform: scale(0.9);
+}
+
+.contact>p {
     padding-top: 0.5rem;
-    margin-right: 16rem;
 }
 
 @media all and (max-width: 1010px) {
@@ -22,12 +42,21 @@
         font-size: 3rem;
     }
 
-    .contact>p,
-    .contact>ul>li {
+    .contact>p {
         font-size: 1.3rem;
     }
 
-    .contact>ul>li {
-        padding-left: 4rem;
+    .contactButtons {
+        padding-top: 1.3rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contactButtons>a {
+        padding: 1rem;
+        border-radius: 0;
+        width: 90%;
+        margin-left: 0;
+        margin-bottom: 0.5rem;
     }
 }
