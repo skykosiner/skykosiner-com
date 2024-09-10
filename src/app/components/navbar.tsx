@@ -20,7 +20,7 @@ export default function NavBar(): JSX.Element {
             return;
         }
 
-        if (windowSize.width < 900) {
+        if (windowSize.width < 900 && open) {
             setOpen(!open);
         }
     }
