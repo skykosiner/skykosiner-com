@@ -13,7 +13,6 @@ type Link = {
 const links: Array<Link> = [
     {
         name: "Latest YouTube video",
-        // TODO: YouTube api to pull link for latest video
         url: ""
     },
     {
@@ -43,7 +42,6 @@ export default function Links(): JSX.Element {
 
     if (video === null) return <p>No video available</p>;
 
-    console.log(video);
     //@ts-ignore
     links[0].url = video.data.videoUrl
 

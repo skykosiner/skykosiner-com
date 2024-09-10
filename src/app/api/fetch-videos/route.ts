@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { parseStringPromise } from 'xml2js';
+import { parseStringPromise } from "xml2js";
 
 export type VideoData = {
     videoTitle: string;
