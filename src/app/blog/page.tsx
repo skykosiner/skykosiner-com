@@ -21,7 +21,7 @@ export default async function Page() {
                 <h2>I like to write about Tech, Productivity, Books, and Coding</h2>
 
                 <div className={styles.image}>
-                    <Image src="/typing-on-ipad.png" width="550" height="500" alt="Me on iPad" />
+                    <Image src="/typing-on-ipad.png" width="550" height="400" alt="Me on iPad" />
                 </div>
 
                 <div>
