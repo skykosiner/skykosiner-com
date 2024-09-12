@@ -3,6 +3,7 @@
 import Link from "next/link";
 import styles from "./projects.module.css";
 import { useState } from "react";
+import DarkMode from "../components/dark-mode";
 
 type Project = {
     name: string,
@@ -54,6 +55,8 @@ export default function Projects(): JSX.Element {
                     </button>
                 </div>
             ))}
+
+            <DarkMode />
         </div>
     );
 }

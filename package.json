@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -16,7 +16,7 @@
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "gray-matter": "^4.0.3",
-    "next": "14.2.6",
+    "next": "^14.2.10",
     "next-compose-plugins": "^2.2.1",
     "next-mdx-remote": "^5.0.0",
     "react": "^18",

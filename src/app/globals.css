@@ -1,8 +1,24 @@
+/* TODO: Set this with the correct colors to use */
+:root {
+    /* Light theme variables */
+    --color-background-light: #F2F2F2;
+    /* Dark theme variables */
+    --color-background-dark: #1f2023;
+}
+
+.light {
+    --color-background: var(--color-background-light);
+}
+
+.dark {
+    --color-background: var(--color-background-dark);
+}
+
 * {
     margin: 0;
     padding: 0;
     color: #333333;
-    background-color: #F2F2F2;
+    background-color: var(--color-background);
     overflow-x: hidden;
 }
 
