@@ -1,0 +1,70 @@
+---
+title: "Email Newsletter Issue One"
+description: "Issues one for my old email newsletter."
+date: August 1, 2023
+slug: "email-newsletter-issue-one"
+---
+---
+Hey friends, it's been a while, and you can thank exams for that, but we're so back.
+
+I used to have an email newsletter, but I stopped around this time last year to focus on other stuff going on. But I’m back now, and will be publishing a new issue every month.
+
+In each issue I will go over what I’m working on that month, and any other interesting stuff I find and or think of during that month.
+
+This issue is going to be a bit different compared to other issues going forward. This issue is going to talk about what I’ve been up to over the past year.
+
+# GCSE
+One of the biggest pain points of the past year was my GCSE. If you're not in the uk let me explain. GCSE are the exams you take in the UK when you're 16 that help you get a job as 99% of jobs require you to have basic results in your GCSE, and your GCSE can also help take your eduction further if you wish too. But long story short, without GCSE in the UK you're very much fucked when it comes to getting a decent job.
+
+I found my self stressing over my GCSE a lot and a lot of other things in my life and all that stress caused me to burn out and well kind off lose passion to do anything, and I ended up doing almost nothing really. But I knew that I needed to work on my GCSE if I wanted to be able to do anything.
+
+So over the past few months since around April I’ve been getting my shit back together again, and well here we are.
+
+# Getting back to content
+When I stopped making content online  I missed it, like a lot. Now that I’m finished my exams I’ve started to get back into making content. As I just find it so much fun to make content and share my insights with the world.
+
+I’m planning on posting to instagram there to four times a week, one new YouTube video every month, one email news letter every month, and to try and write at least a few blog posts in between all of this, but I’m not holding my self accountable to trying to put a certain number of blog posts. This schedule won’t be 100% concrete though, as I don’t want to find my self beating my self up again and again over a lack of work. When in reality I wasn’t getting things done as I felt stress and overworked.
+
+# My new personal website
+Over the past few months I’ve been making my new [personal website](https://skykosiner.com), and I’ve been working on it, on and off. If you would’ve asked me a few months ago I would’ve used react or next.js, but I’ve realized that using a framework for most websites just doesn’t make sense. It just adds more overheard and makes the website slower.
+
+So I decided to rebuild my new personal website using a golang backend to serve the HTML, CSS, and JavaScript files. I’ve found that there was some features from react that I miss, but overall I prefer the simpler route of HTML, CSS, and JavaScript as opposed to all the overhead of react.
+
+One of the biggest things that I missed is the idea of components. I found that I had to copy and paste so much code for the html header, navbar, and footer. But then I found a way in JavaScript to load a navbar and footer file.
+
+
+```javascript
+// In JavaScript this loads the file into an element created with the id of replace_with_nvabar
+window.onload = function() {
+    fetch("/html/nav.html")
+        .then(res => res.text())
+        .then(text => {
+            const oldelem = document.querySelector("script#replace_with_navbar");
+            const newelem = document.createElement("div");
+            newelem.innerHTML = text;
+            oldelem.parentNode.replaceChild(newelem, oldelem);
+        })
+```
+
+```html
+<!—- This is all it takes to load the nav bar anywhere in your html code —->
+<script id="replace_with_navbar" src="/js/navFooter.js"></script>
+```
+
+## Blog system
+Over the past few years I’ve wanted some sort of blogging system and I decided to implant a static blog with markdown files on my new website.
+
+The great thing is the blog system is just markdown files so I’ve created a siri shortcut that use [secure shellfish](https://apps.apple.com/gb/app/ssh-files-secure-shellfish/id1336634154) to help take a markdown file from [Obsidian](https://obsidian.md) (my preferred notes/writing platform) and upload it to the correct folder and publish the post all from my iPad.
+
+I also want to have an rss feed available. As I find that rss feeds are my favorite way to read any sort of article, and it would be  hypocritical of me not to offer an rss feed of my own. But the issue is I can’t find a tool that generates an rss feed from markdown files for me. So if you know of such a tool please let me know and reply to this email. But for now unless such a tool is out there I’ve been making a bash script to append and add all the details to an xml file. Hopefully the rss feed for the blog will be out soon.
+
+## Email server
+Over the past few years I’ve used a gmail account for my email, and I’ve found that it just doesn’t look very professional with a gmail.com domain. So I decided to setup my own mail server with my new domain and vps.
+
+The journey to getting my own mail server setup was an absolute pain. Being able to receive email I had to learn about reverse dns and then wait about 30 minutes for all the dns servers to even update. Once they all updated I still couldn’t send email as a lot of places thought I was just trying to send spam mail. So then I had to look into whatever the fuck an smtp relay is.
+
+I ended up setting up an smtp relay through gmail, but I got annoyed at first because it was showing my gmail address and not my custom domain address. But eventually I found a way to setup alias in gmail, and now my custom mail account can send and receive and email. I couldn’t be happier!
+
+I am kind of annoyed that I have to send email through gmail as I don’t 100% own everything, but that’s a problem for future me to sort out.
+
+I hope you enjoyed this first issue and have a good rest of your day!
